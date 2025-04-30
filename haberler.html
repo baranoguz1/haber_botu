@@ -282,7 +282,7 @@
     <!-- Inline onclick kaldırıldı, event listener DOMContentLoaded ile ekleniyor -->
     <button class="toggle-button">🌙 Gece Modu</button>
     <h1>Haberler & Hava Durumu & Günlük Reytingler & Vizyondaki Filmler</h1>
-    <p>Son Güncelleme: 30 April 2025, 19:11</p>
+    <p>Son Güncelleme: 30 April 2025, 19:17</p>
     <!-- Vizyondaki Filmler Bölümü -->
     <h2 class="section-title">🎬 Vizyondaki Filmler</h2>
     <div class="container">
@@ -579,22 +579,27 @@
                         </div>
                     </div></div><div class="category-section"><h2>Yabancı Kaynak</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.theguardian.com/politics/live/2025/apr/30/labour-tories-local-elections-2025-pmqs-tony-blair-keir-starmer-kemi-badenoch-uk-politics-live-news-updates" target="_blank">Tony Blair’s climate crisis views ‘absolutely aligned’ with government policy, Starmer says – UK politics live</a>
+                            <p>30 April 2025, 16:05</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/us-news/live/2025/apr/30/donald-trump-100-days-michigan-rally-tariffs-ukraine-mandelson-us-politics-live-updates" target="_blank">Trump hits out at journalist in tense TV interview to mark 100 days in office – US politics live</a>
+                            <p>30 April 2025, 16:01</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.nytimes.com/2025/04/29/world/canada/canada-election-carney-trump.html" target="_blank">Mark Carney Has to Deliver on Trump and the Economy After Canada Election Win</a>
                             <p>30 April 2025, 16:01</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/us-news/live/2025/apr/30/donald-trump-100-days-michigan-rally-tariffs-ukraine-mandelson-us-politics-live-updates" target="_blank">Trump hits out at journalist in tense TV interview to mark 100 days in office – US politics live</a>
-                            <p>30 April 2025, 15:48</p>
+                            <a href="https://www.theguardian.com/politics/2025/apr/30/reform-uk-served-with-legal-papers-over-bullying-allegations" target="_blank">Reform UK served with legal papers over bullying allegations</a>
+                            <p>30 April 2025, 15:57</p>
                         </div>
                     
                         <div class="card">
                             <a href="https://www.theguardian.com/world/2025/apr/30/brazil-red-world-cup-jerseys" target="_blank">Outrage in Brazil over reports of new red national football jersey</a>
-                            <p>30 April 2025, 15:48</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/politics/live/2025/apr/30/labour-tories-local-elections-2025-pmqs-tony-blair-keir-starmer-kemi-badenoch-uk-politics-live-news-updates" target="_blank">Tony Blair’s climate crisis views ‘absolutely aligned’ with government policy, Starmer says – UK politics live</a>
                             <p>30 April 2025, 15:48</p>
                         </div>
                     
@@ -622,15 +627,10 @@
                             <a href="https://www.nytimes.com/2025/04/30/world/middleeast/trump-family-qatar-dubai.html" target="_blank">Trump Family Agrees to Projects in Qatar and Dubai Ahead of President’s Middle East Visit</a>
                             <p>30 April 2025, 15:32</p>
                         </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/business/2025/apr/30/bank-of-england-backs-scheme-to-put-more-economics-teachers-into-state-schools" target="_blank">Bank of England backs scheme to put more economics teachers into state schools</a>
-                            <p>30 April 2025, 15:30</p>
-                        </div>
                     </div></div><div class="category-section"><h2>Dünya</h2><div class="container">
                         <div class="card">
                             <a href="https://www.cnnturk.com/dunya/son-dakika-haberi-abd-baskani-trump-cin-cok-fena-darbe-yiyor-2277823" target="_blank">SON DAKİKA HABERİ: ABD Başkanı Trump: Çin çok fena darbe yiyor</a>
-                            <p>30 April 2025, 19:02</p>
+                            <p>30 April 2025, 19:07</p>
                         </div>
                     
                         <div class="card">
@@ -1040,6 +1040,14 @@
             toggleButton.addEventListener("click", toggleDarkMode);
             toggleButton.addEventListener("touchstart", toggleDarkMode, { passive: false });
         });
+                       
+
+    if (performance.navigation.type !== 1) {
+        const now = new Date().getTime();
+        if (!location.search.includes("ts=")) {
+            location.href = location.pathname + "?ts=" + now;
+        }
+    }
 
 
 
