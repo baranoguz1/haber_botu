@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Güncel Haberler & Hava Durumu & Günlük Reytingler & Vizyondaki Filmler</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
@@ -282,7 +285,7 @@
     <!-- Inline onclick kaldırıldı, event listener DOMContentLoaded ile ekleniyor -->
     <button class="toggle-button">🌙 Gece Modu</button>
     <h1>Haberler & Hava Durumu & Günlük Reytingler & Vizyondaki Filmler</h1>
-    <p>Son Güncelleme: 30 April 2025, 19:47</p>
+    <p>Son Güncelleme: 30 April 2025, 19:52</p>
     <!-- Vizyondaki Filmler Bölümü -->
     <h2 class="section-title">🎬 Vizyondaki Filmler</h2>
     <div class="container">
@@ -779,6 +782,11 @@
                         </div>
                     </div></div><div class="category-section"><h2>Spor</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.cnnturk.com/spor/futbol/sivassporda-jan-bieganski-ameliyat-oldu-2277853" target="_blank">Sivasspor’da Jan Bieganski, ameliyat oldu</a>
+                            <p>30 April 2025, 19:45</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/spor/futbol/yasin-kol-bu-sezon-ikinci-kez-derbiye-atandi-2277813" target="_blank">Yasin Kol, bu sezon ikinci kez derbiye atandı</a>
                             <p>30 April 2025, 18:18</p>
                         </div>
@@ -821,11 +829,6 @@
                         <div class="card">
                             <a href="https://www.sabah.com.tr/spor/futbol/2025/04/30/tff-abb-fomgeti-etik-kuruluna-sevk-etti" target="_blank">TFF, ABB Fomget'i Etik Kurulu'na sevk etti!</a>
                             <p>30 April 2025, 18:29</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.sabah.com.tr/spor/futbol/2025/04/30/jakirovic-her-sey-planladigimiz-ve-ongordugumuz-sekilde-gerceklesti" target="_blank">Jakirovic: Her şey planladığımız ve öngördüğümüz şekilde gerçekleşti</a>
-                            <p>30 April 2025, 18:04</p>
                         </div>
                     </div></div><div class="category-section"><h2>Sanat</h2><div class="container">
                         <div class="card">
@@ -1041,12 +1044,10 @@
             }
 
             // ✅ Otomatik yönlendirme (önbelleği aşmak için)
-            if (performance.navigation.type !== 1) {
+            window.addEventListener("load", function () {
                 const now = new Date().getTime();
                 if (!location.search.includes("ts=")) {
-                    setTimeout(() => {
-                        location.href = location.pathname + "?ts=" + now;
-                    }, 300);
+                    window.location.replace(location.pathname + "?ts=" + now);
                 }
             }
         });
