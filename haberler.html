@@ -9,6 +9,8 @@
     <meta http-equiv="Expires" content="0" />
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#007bff">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=tr_TR"></script>
+
 
     <title>Güncel Haberler & Hava Durumu & Günlük Reytingler & Vizyondaki Filmler</title>
     <style>
@@ -288,7 +290,7 @@
     <!-- Inline onclick kaldırıldı, event listener DOMContentLoaded ile ekleniyor -->
     <button class="toggle-button">🌙 Gece Modu</button>
     <h1>Haberler & Hava Durumu & Günlük Reytingler & Vizyondaki Filmler</h1>
-    <p>Son Güncelleme: 01 May 2025, 16:40</p>
+    <p>Son Güncelleme: 01 May 2025, 17:19</p>
     <!-- Vizyondaki Filmler Bölümü -->
     <h2 class="section-title">🎬 Vizyondaki Filmler</h2>
     <div class="container">
@@ -442,21 +444,21 @@
                         <p><strong>18:00</strong></p>
                         <img src="data:image/png;base64,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" alt="Hava Durumu">
                         <p>Parçalı bulutlu</p>
-                        <p><strong>10.43°C</strong></p>
+                        <p><strong>10.68°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>21:00</strong></p>
                         <img src="data:image/png;base64,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" alt="Hava Durumu">
-                        <p>Kapalı</p>
-                        <p><strong>10.11°C</strong></p>
+                        <p>Parçalı bulutlu</p>
+                        <p><strong>10.54°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>00:00</strong></p>
                         <img src="data:image/png;base64,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" alt="Hava Durumu">
                         <p>Hafif yağmur</p>
-                        <p><strong>10.1°C</strong></p>
+                        <p><strong>10.29°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
@@ -521,7 +523,13 @@
                         <p>Parçalı az bulutlu</p>
                         <p><strong>9.23°C</strong></p>
                     </div>
-                    </div><h2>Döviz Kurları</h2><div class='exchange-container'>
+                    </div>
+            <h2 class="section-title">🚦 İstanbul Trafik Durumu</h2>
+            <div id="traffic-info" class="card traffic-card" style="margin-bottom: 20px;">
+              <p>Yükleniyor...</p>
+            </div>
+            <div id="map" style="width: 100%; height: 300px; border-radius: 10px; margin-bottom: 30px;"></div>
+            <h2>Döviz Kurları</h2><div class='exchange-container'>
                         <div class="exchange-card">
                             <p><strong>USD:</strong> 38.52 TL</p>
                         </div>
@@ -534,6 +542,36 @@
                             <p><strong>GBP:</strong> 51.36 TL</p>
                         </div>
                     </div><div class="category-section"><h2>Gündem</h2><div class="container">
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/istanbul-avcilarda-ogrenci-yurdunda-yangin-2278388" target="_blank">İstanbul Avcılar'da öğrenci yurdunda yangın</a>
+                            <p>01 May 2025, 17:08</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/manisada-saganak-ve-dolu-etkili-oldu-2278386" target="_blank">Manisa'da sağanak ve dolu etkili oldu</a>
+                            <p>01 May 2025, 17:06</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/video/turkiye/1-mayis-emek-ve-dayanisma-gunu-nasil-geciyor-2278300" target="_blank">1 Mayıs Emek ve Dayanışma Günü nasıl geçiyor?</a>
+                            <p>01 May 2025, 17:02</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/istanbul-valiliginden-1-mayis-aciklamasi-izinsiz-gosteri-icin-toplananlardan-384u-gozaltina-alindi-2278387" target="_blank">İstanbul Valiliği'nden 1 Mayıs açıklaması: İzinsiz gösteri için toplananlardan 384'ü gözaltına alındı</a>
+                            <p>01 May 2025, 16:51</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/dmm-italya-5-bin-turkun-vize-randevusunu-iptal-etti-iddiasini-yalanladi-2278381" target="_blank">DMM, 'İtalya 5 bin Türk'ün vize randevusunu iptal etti' iddiasını yalanladı</a>
+                            <p>01 May 2025, 16:43</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/video/turkiye/boru-patladi-evleri-su-basti-2278380" target="_blank">BORU PATLADI! Evleri su bastı</a>
+                            <p>01 May 2025, 16:42</p>
+                        </div>
+                    
                         <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/denizlide-2-yasindaki-bebek-darp-edildi-hayati-tehlikesi-devam-ediyor-2278379" target="_blank">Denizli’de 2 yaşındaki bebek darp edildi! Hayati tehlikesi devam ediyor...</a>
                             <p>01 May 2025, 16:36</p>
@@ -553,85 +591,55 @@
                             <a href="https://www.cnnturk.com/turkiye/cumhurbaskani-erdogan-5-ulkenin-buyukelcisini-kabul-etti-2278352" target="_blank">Cumhurbaşkanı Erdoğan, 5 ülkenin büyükelçisini kabul etti</a>
                             <p>01 May 2025, 15:28</p>
                         </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/video/turkiye/1-mayis-emek-ve-dayanisma-gunu-nasil-geciyor-2278300" target="_blank">1 Mayıs Emek ve Dayanışma Günü nasıl geçiyor?</a>
-                            <p>01 May 2025, 15:27</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/kaanin-yeni-prototipleri-bu-yil-ucacak-2278351" target="_blank">KAAN'ın yeni prototipleri bu yıl uçacak</a>
-                            <p>01 May 2025, 15:21</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/video/turkiye/bu-olcum-hayati-onemde-depreme-dayanikli-binalar-icin-kritik-ivme-hesabi-2278336" target="_blank">BU ÖLÇÜM HAYATİ ÖNEMDE! Depreme dayanıklı binalar için kritik ''ivme'' hesabı</a>
-                            <p>01 May 2025, 15:14</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/kutahyada-deprem-mi-oldu-kac-siddetinde-1-mayis-afad-kandilli-rasathanesi-son-depremler-son-depremler-sorgulama-2276241" target="_blank">KÜTAHYA'DA DEPREM Mİ OLDU, KAÇ ŞİDDETİNDE? 1 Mayıs AFAD, Kandilli Rasathanesi Son Depremler! SON DEPREMLER SORGULAMA!</a>
-                            <p>01 May 2025, 15:03</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/son-dakika-cumhurbaskani-erdogandan-aciklamalar-2278121" target="_blank">SON DAKİKA... Cumhurbaşkanı Erdoğan 1 Mayıs'ta işçileri kabul etti! "Çalışan haklarını korumak önceliğimiz"</a>
-                            <p>01 May 2025, 14:52</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/kartalkayadaki-otel-faciasi-yanginin-cikis-ani-kamerada-189-sayfalik-rapor-acik-birakilan-grill-plate-bozuk-termostat-ihmaller-zinciri-2278228" target="_blank">Kartalkaya’daki otel faciası: Yangının çıkış anı kamerada! 189 sayfalık rapor: Açık bırakılan ‘grill plate’, bozuk termostat, ihmaller zinciri...</a>
-                            <p>01 May 2025, 14:37</p>
-                        </div>
                     </div></div><div class="category-section"><h2>Yabancı Kaynak</h2><div class="container">
                         <div class="card">
-                            <a href="https://www.nytimes.com/article/ukraine-mineral-deal-us-trump.html" target="_blank">The U.S.-Ukraine Mineral Deal: What We Know</a>
-                            <p>01 May 2025, 13:32</p>
+                            <a href="https://www.nytimes.com/2025/05/01/us/oklahoma-texas-storm.html" target="_blank">Fatal Storm Rips Through Oklahoma and Texas, Flooding Roads</a>
+                            <p>01 May 2025, 14:14</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/science/2025/may/01/british-woman-115-claims-worlds-oldest-living-person-title" target="_blank">‘I do what I like’: British woman, 115, claims world’s oldest living person title</a>
-                            <p>01 May 2025, 13:24</p>
+                            <a href="https://www.theguardian.com/politics/live/2025/may/01/local-elections-polls-labour-tories-reform-uk-politics-live-news" target="_blank">Local elections: voters head to the polls across England – UK politics live</a>
+                            <p>01 May 2025, 14:08</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/business/2025/may/01/m-and-s-unable-to-take-on-new-workers-as-disruptions-continue-after-cyber-attack" target="_blank">M&S unable to take on new workers as disruptions continue after cyber-attack</a>
-                            <p>01 May 2025, 13:18</p>
+                            <a href="https://www.theguardian.com/stage/2025/may/01/tony-award-nominations-broadway" target="_blank">Tonys 2025: George Clooney and Nicole Scherzinger land first nominations as Othello snubbed</a>
+                            <p>01 May 2025, 14:02</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/01/world/europe/ukraine-trump-minerals-deal.html" target="_blank">With Minerals Deal, Trump Ties Himself to Future of Ukraine</a>
+                            <p>01 May 2025, 14:01</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/us-news/2025/may/01/trump-immigrants-federal-prisons" target="_blank">Trump administration jails hundreds of immigrants in notorious federal prisons</a>
+                            <p>01 May 2025, 14:00</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/world/2025/may/01/second-italian-journalist-allegedly-targeted-with-mercenary-spyware" target="_blank">Second Italian journalist allegedly targeted with ‘mercenary spyware’</a>
+                            <p>01 May 2025, 14:00</p>
                         </div>
                     
                         <div class="card">
                             <a href="https://www.theguardian.com/us-news/live/2025/may/01/donald-trump-tariffs-immigration-economy-ukraine-us-politics-live-updates" target="_blank">US treasury secretary urges Fed chair to cut interest rates as Trump claims shrinking economy isn’t related to tariff war – live</a>
-                            <p>01 May 2025, 13:18</p>
+                            <p>01 May 2025, 13:54</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/world/live/2025/may/01/ukraine-war-live-updates-minerals-deal-us-trump-zelenskyy-latest-news" target="_blank">White House hails ‘historic’ and ‘first of its kind’ Ukraine-US minerals deal – Europe live</a>
-                            <p>01 May 2025, 13:10</p>
+                            <a href="https://www.theguardian.com/uk-news/2025/may/01/warmest-start-to-may-on-record-in-uk-as-temperatures-prompt-wildfire-warnings" target="_blank">Warmest start to May on record in UK as temperatures prompt wildfire warnings</a>
+                            <p>01 May 2025, 13:49</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/business/2025/may/01/mcdonalds-decline-global-sales-first-quarter" target="_blank">McDonald’s posts surprise decline in global sales in first quarter</a>
-                            <p>01 May 2025, 13:10</p>
+                            <a href="https://www.theguardian.com/us-news/2025/may/01/us-has-approached-china-seeking-talks-on-trump-tariffs-says-state-social-media" target="_blank">US has approached China seeking talks on Trump tariffs, says state social media</a>
+                            <p>01 May 2025, 13:46</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/us-news/2025/may/01/new-orleans-clergy-abuse-archbishop" target="_blank">Lawyers for New Orleans clergy abuse survivors ramp up pressure to depose archbishop</a>
-                            <p>01 May 2025, 13:05</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/business/2025/may/01/uk-mortgage-lending-at-4-year-high-amid-rush-to-avoid-stamp-duty-rise" target="_blank">UK mortgage lending at four-year high amid rush to avoid stamp duty rise</a>
-                            <p>01 May 2025, 13:04</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/01/world/europe/england-local-elections-starmer.html" target="_blank">What to Know About the First U.K. Local Elections Under Keir Starmer</a>
-                            <p>01 May 2025, 13:01</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/money/2025/may/01/british-men-urged-to-join-dad-strike-calling-for-more-paternity-leave" target="_blank">British men urged to join ‘Dad strike’ calling for more paternity leave</a>
-                            <p>01 May 2025, 13:00</p>
+                            <a href="https://www.theguardian.com/science/2025/may/01/british-woman-115-claims-worlds-oldest-living-person-title" target="_blank">‘I do what I like’: British woman, 115, claims world’s oldest living person title</a>
+                            <p>01 May 2025, 13:45</p>
                         </div>
                     </div></div><div class="category-section"><h2>Dünya</h2><div class="container">
                         <div class="card">
@@ -665,23 +673,23 @@
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.bbc.com/turkce/articles/c0l05dlrw82o" target="_blank">İstanbul'da 1 Mayıs: Kadıköy'de binlerce kişi toplandı, Taksim'e gitmek isteyen yüzlerce gösterici gözaltına alındı</a>
+                            <a href="https://anlatilaninotesi.com.tr/20250501/cumhurbaskani-erdogandan-diplomatik-kabul-5-ulkenin-buyukelcisi-guven-mektubu-sundu-1095844364.html" target="_blank">Cumhurbaşkanı Erdoğan’dan diplomatik kabul: 5 ülkenin büyükelçisi güven mektubu sundu</a>
+                            <p>01 May 2025, 17:12</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://anlatilaninotesi.com.tr/20250501/istanbul-valiligi-acikladi-1-mayista-384-kisi-gozaltina-alindi-1095843994.html" target="_blank">İstanbul Valiliği açıkladı: 1 Mayıs'ta 384 kişi gözaltına alındı</a>
+                            <p>01 May 2025, 16:57</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://anlatilaninotesi.com.tr/20250501/kartalkayada-78-kisinin-hayatini-kaybettigi-yanginin-cikis-ani-goruntuleri-ortaya-cikti-1095843612.html" target="_blank">Kartalkaya'da 78 kişinin hayatını kaybettiği yangının çıkış anı görüntüleri ortaya çıktı</a>
+                            <p>01 May 2025, 16:56</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.bbc.com/turkce/articles/clywqd35w5xo" target="_blank">AB'nin yeni güvenlik mimarisi: Dönem Başkanı Polonya, Türkiye'yle nasıl bir işbirliği hedefliyor?</a>
                             <p>01 May 2025, 13:39</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250501/abd-rusyayla-muzakereler-suruyor-ukrayna-konusunda-anlasma-hala-mumkun-1095843768.html" target="_blank">ABD: Rusya'yla müzakereler sürüyor, Ukrayna konusunda anlaşma hala mümkün</a>
-                            <p>01 May 2025, 16:36</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250501/kutahyada-yeni-deprem-sonrasi-prof-dr-naci-gorurden-uyari-bolgeyi-isaret-etti-yoneticiler-dikkatli-1095843013.html" target="_blank">Kütahya’daki yeni deprem sonrası Prof. Dr. Naci Görür'den uyarı: Bölgeyi işaret etti, 'yöneticiler dikkatli olmalı'</a>
-                            <p>01 May 2025, 16:00</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250501/ankarada-1-mayis-emek-ve-dayanisma-gunu-kutlamalari-bulusma-alani-tandogan-meydani-oldu-1095841192.html" target="_blank">Ankara'da 1 Mayıs Emek ve Dayanışma Günü kutlamaları: Buluşma alanı Tandoğan Meydanı oldu</a>
-                            <p>01 May 2025, 15:53</p>
                         </div>
                     </div></div><div class="category-section"><h2>Ekonomi</h2><div class="container">
                         <div class="card">
@@ -785,6 +793,11 @@
                         </div>
                     </div></div><div class="category-section"><h2>Spor</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.cnnturk.com/spor/golfun-dunya-yildizlari-belekte-bulusacak-2278392" target="_blank">Golfün dünya yıldızları Belek’te buluşacak</a>
+                            <p>01 May 2025, 16:57</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/spor/futbol/athleti-c-bi-lbao-manchester-uni-ted-trt-1-canli-i-zle-athletic-bilbao-manchester-united-maci-hangi-kanalda-saat-kacta-2278363" target="_blank">ATHLETİC BİLBAO - MANCHESTER UNİTED TRT 1 CANLI İZLE: Athletic Bilbao - Manchester United maçı hangi kanalda, saat kaçta? (Muhtemel 11’ler-maç kadrosu)</a>
                             <p>01 May 2025, 16:09</p>
                         </div>
@@ -800,6 +813,21 @@
                         </div>
                     
                         <div class="card">
+                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/giovanni-van-bronckhorst-geri-mu-donuyor" target="_blank">Giovanni van Bronckhorst geri mü dönüyor?</a>
+                            <p>01 May 2025, 17:09</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/giovanni-van-bronckhorst-geri-mu-donuyor" target="_blank">Giovanni van Bronckhorst geri mü dönüyor?</a>
+                            <p>01 May 2025, 17:09</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/alexander-sorlothtan-gelecegi-icin-olay-aciklama" target="_blank">Alexander Sörloth'tan geleceği için olay açıklama</a>
+                            <p>01 May 2025, 17:01</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/fenerbahce-acikladi-afrikada-yetenek-taramasi-yapildi" target="_blank">Fenerbahçe açıkladı: Afrika’da yetenek taraması yapıldı</a>
                             <p>01 May 2025, 16:13</p>
                         </div>
@@ -812,26 +840,6 @@
                         <div class="card">
                             <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/galatasaraya-brezilyadan-surpriz-kaleci" target="_blank">Galatasaray’a Brezilya’dan sürpriz kaleci!</a>
                             <p>01 May 2025, 16:07</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/galatasaraya-brezilyadan-surpriz-kaleci" target="_blank">Galatasaray’a Brezilya’dan sürpriz kaleci!</a>
-                            <p>01 May 2025, 16:07</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/besiktas-kondisyon-ve-taktik-calisti" target="_blank">Beşiktaş, kondisyon ve taktik çalıştı</a>
-                            <p>01 May 2025, 15:48</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/galatasaray-sivasspor-maci-hazirliklarina-devam-etti" target="_blank">Galatasaray, Sivasspor maçı hazırlıklarına devam etti</a>
-                            <p>01 May 2025, 15:08</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/01/aytug-batur-komec-sirbistan-ekiplerinin-radarina-girdi" target="_blank">Aytuğ Batur Kömeç, Sırbistan ekiplerinin radarına girdi</a>
-                            <p>01 May 2025, 14:17</p>
                         </div>
                     </div></div><div class="category-section"><h2>Sanat</h2><div class="container">
                         <div class="card">
@@ -1063,6 +1071,43 @@
                 });
             }
         });
+</script> 
+
+<script>
+ymaps.ready(function () {
+    var myMap = new ymaps.Map("map", {
+        center: [41.0082, 28.9784],
+        zoom: 11
+    });
+
+    var trafficProvider = new ymaps.traffic.provider.Actual({}, { infoLayerShown: true });
+    trafficProvider.setMap(myMap);
+
+    // Harita yüklendikten sonra trafik verisini kontrol et
+    trafficProvider.events.add("update", function () {
+        try {
+            var level = trafficProvider.state.get("level");
+            var localtime = trafficProvider.state.get("localtime");
+            document.getElementById("traffic-info").innerHTML =
+                "<strong>Trafik Yoğunluğu:</strong> " + level + "/10<br><strong>Güncelleme:</strong> " + localtime;
+        } catch (e) {
+            document.getElementById("traffic-info").innerHTML =
+                "⚠️ Trafik verisi alınamadı.";
+            console.error("Trafik verisi hatası:", e);
+        }
+    });
+
+    // 5 saniye sonra hala veri gelmediyse uyarı göster
+    setTimeout(() => {
+        const html = document.getElementById("traffic-info").innerHTML;
+        if (html.includes("Yükleniyor")) {
+            document.getElementById("traffic-info").innerHTML =
+                "⚠️ Trafik bilgisi şu anda alınamıyor.";
+        }
+    }, 5000);
+});
 </script>
+
+                       
 </body>
 </html>
