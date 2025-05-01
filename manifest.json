@@ -1,7 +1,7 @@
 {
   "name": "Güncel Haberler Paneli",
   "short_name": "Haberler",
-  "start_url": "haberler.html",
+  "start_url": "/haber_botu/haberler.html",
   "display": "standalone",
   "background_color": "#f4f4f9",
   "theme_color": "#007bff",
