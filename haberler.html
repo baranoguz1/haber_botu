@@ -251,6 +251,7 @@
         .card, .film-card, .weather-card {
             width: 100%;
             max-width: 320px;
+            box-sizing: border-box;
         }
         .container {
             display: flex;
@@ -297,7 +298,7 @@
 <body>
     <!-- Inline onclick kaldırıldı, event listener DOMContentLoaded ile ekleniyor -->
     <button class="toggle-button">🌙 Gece Modu</button>
-    <p>Son Güncelleme: 02 May 2025, 14:22</p>
+    <p>Son Güncelleme: 02 May 2025, 14:28</p>
     <div class="container">
 
             <h2 class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -307,21 +308,21 @@
                         <p><strong>15:00</strong></p>
                         <img src="data:image/png;base64,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" alt="Hava Durumu">
                         <p>Parçalı bulutlu</p>
-                        <p><strong>14.53°C</strong></p>
+                        <p><strong>14.14°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>18:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAHFElEQVR4nO2bf2xTVRTHv223sa5dB2w4B7oJcTDRiGAAIUaDCgZ/bMQwBhEJYRmMgGIIf8CQgEZDJC5TwUQNTkP4CyVBomQSwzJAMUEYKiPI3A8U2Q/G3Nb1x7q2M+dyu8zRYdd3u74u55M0/fnOu+9+37n3nHNvwTAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMw9yOQWufdHV1jli3Jicno7W1FcXFG8QzvQ/CYwCKAMwGkC6/bgZwFsBnAM5Eup0VFcfCPjZOaUuiy0sA3gGQE6QVdwF4GEAhgEsAtgE4qseLMOqgDSr4EMDhIcQYzHQAXwPYrccLiTEPMcDn86G3txcGQ/+99C2A58IwthXAZADL1bZRGzHlIX6/D2azGYmJifB6e+mj7WGKEaAAwE6ljdRITAnicrkwduw4TJkyGe3t7Y8ajca3FZjdBeB+BXaUoEdBTACWAigH8COA8/JR4fP53gTw0JIleXC53AUdHR0wmUwqzlmswogK9BT2ZgMokdGSbagfxcXFwWxOOl5e/nl2Wdn7k0mQSZMmoa+vTzzCpAnAfQA8Ki5ES9irF0FeBnAgFI+lTidRkpIsuHjxIrZuLUFjYyOysrLg9/u1tOEJAKcAzJWvMwFcB3BS5i4hG491QfYB2DCcA/r6/DCZ4mCxWIUIRUVrUVlZhenTHxBRWJhQ6DwFwAtBDv8HwAIAv4RiWosg0Z5DyoYrBkEhLwlBN4PRaMRHH+3DnDmzhaeQ94TJa0OIQYwDUA1gocbr/V+iKcgyAK9rMWAwGNDZ2SHC4LKyUmRk3I2bN9vF5xGAjH6qYlS5E9ESJBXAfhWGyEPIUzIyMrBixXI0NTVFShDIiX91pIwjioKsoFqhKmMBAfLzl2LmzEfQ1tamynQwno+k8WgJsk61QfKS5GQbcnNfhN1u7/+cJnm32y0eGib8gWSqMDIU0ahlzaPkTrXRgJfMmjUTaWlpaG5uhtPpgs1mQ0qKTXxPiWRXlx1WqwXp6enh5i5Nqts+kGgI8ngkjdMaSXNziwiBV616RUz048ePF4K0t7eLOebIkaM4ffoHZGbeC4vFMlzPcQJ4RnoKVRIuq2x/NARJD+E3YeHzeUWOUlRUiDVrViM1NS2omdzcXJSWluLQoa/EeypYDsNTCgZViM/KkPknFdcQjcSQErBXtZ43GNSpFHVZrcmiGuxwOMT7gZBgSUlWka8cPHgQO3bswrRpU1VEZp8EamKxlhi6Imf6Vqc6nd1wOp23iQGZVDqdDlHKX7lyJQoK8nHt2t9BfztM1skVS02MlCBWAPfI195InYRucvISn89/xzuevgtEYuvXFyM9fQIcDqeKJpTINf2wiaQgJrnZgMbWVgB/STE208gRwfOGBHmE2+0SRcmcnBx0dXWpMl2i5eBITeq75RLpYEzyoQsoCCAoy/d4lFTeoTWkVy3IOLmbI6KhrSoCgRWFvjTZKyJVixmVgpCtn2UJOyYITOT19Q1oaWkV4S+ts1gsZjH5h7ngpUlZlYJ8H0tiQK4+OhzdMJsTsXjxs8JTKOJqaGgUHkMrkWPGjBlu4tiqqU1aDh4ATd5PKrI1YtC8QVuKtm/fhpSUFNHxN27cwLlz50UmX1HxHeLj40WZxesNOTg8r6X9qhLD3yJRn4o0gUSSvIA8goap+PiE/rNWVp5ASckb8Hh6MXHixFBFmVFRcezXcJuuIuwtiEUxIPMREoUqwT09HvFst3eJm8zlcmLBgqdw4MAXSEhIEDWwEFYjqYQSthhQJIiWjWq6hISioay7247s7KkoLX1PiNHd3X2n5lL+sVfr9agQZIYCG7qDRKF1e5r058+fh0WLFnpqai55aYgbVAU4JUcIJXuFVUzqWQps6BLq+ECEtWXL5uqrV//Mq6qqSsvJmZZAu178fj9tE2pR2XYVHjJadtAHJbCRwmZLebC8fH/vsmX5NXV1DdVut7vaaDQqFQOKOrNRgQ1dQ8NUZ2eH1WQyzd2z511s3LgetbV/iAKloq2s/agQ5IKitugaKYqN6l+bNm3C3r0foK3tJlpaWrTsBbsNFYJ8o/veVITRaLRTpOXx9CAvj1Yd94gcpb6+vj+n0YqqxLBG/jNpNOOVAcx16nwaqmgr65Urtdi5cxeqqy+IxJEy+8uXa8LuBlWCrJVLmKOZL+VuS8EtjzDAarWJdZUTJypRV1cv6mGFhWuiLghkcfHpUSzIUvk/xv9AJRfyFAqDA2hZn1cpCBWBfpfbLUcbh6UgIWGzpYR9+SpzCI/8F+xJhTb1wPHhiKEV1Uldj9xE9hYAh556NUw+HulaXST3ZSXI6idVgyfQSqk8X9Q3OAwB3Zw+eSOdkf/OrQ3HkJYhi2EYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYHQDgX9lKVZgWrU3rAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Parçalı bulutlu</p>
-                        <p><strong>15.06°C</strong></p>
+                        <p><strong>14.8°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>21:00</strong></p>
                         <img src="data:image/png;base64,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" alt="Hava Durumu">
                         <p>Kapalı</p>
-                        <p><strong>13.03°C</strong></p>
+                        <p><strong>12.9°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
@@ -822,6 +823,11 @@
                         </div>
                     </div></div><div class="category-section"><h2>Yabancı Kaynak</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.bbc.com/news/articles/cx27z0r8n5do" target="_blank">Activists say ship aiming to sail to Gaza was attacked by drones</a>
+                            <p>02 May 2025, 11:25</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.nytimes.com/2025/05/01/arts/russell-brand-uk-court-rape-charges.html" target="_blank">Russell Brand Is Granted Bail in U.K. Court Hearing on Rape Charges</a>
                             <p>02 May 2025, 11:17</p>
                         </div>
@@ -865,11 +871,6 @@
                             <a href="https://www.nytimes.com/2025/05/02/business/energy-environment/exxon-chevron-earnings.html" target="_blank">Exxon and Chevron Report Lower Profits While Girding for Tariffs</a>
                             <p>02 May 2025, 10:59</p>
                         </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/us-news/live/2025/may/02/donald-trump-tariffs-immigration-courts-pbs-npr-media-pete-hegseth-us-politics-live-updates" target="_blank">Trump orders funding cut for public broadcasters NPR and PBS in fresh attack on media – US politics live</a>
-                            <p>02 May 2025, 10:59</p>
-                        </div>
                     </div></div><div class="category-section"><h2>Dünya</h2><div class="container">
                         <div class="card">
                             <a href="https://www.cnnturk.com/video/dunya/durzilerle-gerilim-suriyedeki-catismalarda-hangi-el-var-2278770" target="_blank">Dürzilerle gerilim: Suriye'deki çatışmalarda hangi el var?</a>
@@ -889,6 +890,11 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/video/dunya/kktcnin-gozu-gokyuzunde-binbasi-bakiciyi-gosteri-ucusuna-cnn-turk-ugurladi-2278722" target="_blank">KKTC'nin gözü gökyüzünde! Binbaşı Bakıcı’yı gösteri uçuşuna CNN TÜRK uğurladı</a>
                             <p>02 May 2025, 12:31</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.bbc.com/turkce/articles/c1eg5zx0d2zo" target="_blank">Kulak kiri sağlığınız hakkında neler söylüyor?</a>
+                            <p>02 May 2025, 11:23</p>
                         </div>
                     
                         <div class="card">
@@ -915,12 +921,12 @@
                             <a href="https://anlatilaninotesi.com.tr/20250502/ferhat-gocer-sinirdayim-diyerek-acikladi-borderline-durumum-olabilir-1095866808.html" target="_blank">Ferhat Göçer, 'sınırdayım' diyerek açıkladı: 'Borderline durumum olabilir'</a>
                             <p>02 May 2025, 13:22</p>
                         </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250502/italya-vize-randevularini-iptal-mi-etti-resmi-aciklama-geldi-1095866621.html" target="_blank">İtalya vize randevularını iptal mi etti? Resmi açıklama geldi</a>
-                            <p>02 May 2025, 13:14</p>
-                        </div>
                     </div></div><div class="category-section"><h2>Ekonomi</h2><div class="container">
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/ekonomi/abden-tiktoka-rekor-ceza-kullanici-verileri-cine-mi-aktarildi-2278784" target="_blank">AB’den TikTok’a rekor ceza! Kullanıcı verileri Çin’e mi aktarıldı?</a>
+                            <p>02 May 2025, 14:25</p>
+                        </div>
+                    
                         <div class="card">
                             <a href="https://www.cnnturk.com/ekonomi/son-dakika-bakan-bolat-ihracat-nisanda-20-9-milyar-dolar-2278714" target="_blank">SON DAKİKA | Bakan Bolat: Nisan ayı ihracatımız 20,9 milyar dolar olarak gerçekleşti</a>
                             <p>02 May 2025, 13:01</p>
@@ -964,11 +970,6 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/ekonomi/son-dakika-borsa-istanbul-haftanin-son-islem-gunune-yukselisle-basladi-2-nisan-2025-2278637" target="_blank">SON DAKİKA | Borsa İstanbul haftanın son işlem gününe yükselişle başladı (2 Nisan 2025)</a>
                             <p>02 May 2025, 10:04</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/ekonomi/kuresel-piyasalarin-gozu-abdde-aciklanacak-tarim-disi-istihdam-verisinde-2278631" target="_blank">Küresel piyasaların gözü ABD'de açıklanacak tarım dışı istihdam verisinde</a>
-                            <p>02 May 2025, 09:42</p>
                         </div>
                     </div></div><div class="category-section"><h2>Magazin</h2><div class="container">
                         <div class="card">
