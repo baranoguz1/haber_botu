@@ -15,8 +15,16 @@
     <style>
         html, body {
             width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
         }
+
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         body {
             font-family: 'Poppins', sans-serif;
@@ -302,7 +310,7 @@
 <body>
     <!-- Inline onclick kaldırıldı, event listener DOMContentLoaded ile ekleniyor -->
     <button class="toggle-button">🌙 Gece Modu</button>
-    <p>Son Güncelleme: 02 May 2025, 14:31</p>
+    <p>Son Güncelleme: 02 May 2025, 14:37</p>
     <div class="container">
 
             <h2 class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -777,13 +785,23 @@
                     </a>
                     <div class="category-section"><h2>Gündem</h2><div class="container">
                         <div class="card">
-                            <a href="https://www.cnnturk.com/video/turkiye/sgkdan-yipranma-payi-uygulamasina-kisitlama-2278783" target="_blank">SGK'dan 'Yıpranma Payı' uygulamasına kısıtlama</a>
-                            <p>02 May 2025, 14:28</p>
+                            <a href="https://www.cnnturk.com/turkiye/narin-cinayetinde-15-sanik-sucluyu-kayirma-sucundan-3uncu-kez-hakim-karsisinda-2278669" target="_blank">Narin Güran davasında 4. duruşma 30 Mayıs'ta görülecek</a>
+                            <p>02 May 2025, 14:34</p>
                         </div>
                     
                         <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/chp-otobusunun-soforu-araci-polisin-uzerine-surmustu-bakan-yerlikayadan-aciklama-2278776" target="_blank">CHP otobüsünün şoförü aracı polisin üzerine sürmüştü! Bakan Yerlikaya'dan açıklama</a>
-                            <p>02 May 2025, 14:10</p>
+                            <p>02 May 2025, 14:33</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/son-dakika-sanatci-yavuz-top-hayatini-kaybetti-2278786" target="_blank">SON DAKİKA... Sanatçı Yavuz Top hayatını kaybetti!</a>
+                            <p>02 May 2025, 14:32</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/video/turkiye/sgkdan-yipranma-payi-uygulamasina-kisitlama-2278783" target="_blank">SGK'dan 'Yıpranma Payı' uygulamasına kısıtlama</a>
+                            <p>02 May 2025, 14:28</p>
                         </div>
                     
                         <div class="card">
@@ -812,18 +830,8 @@
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/narin-cinayetinde-15-sanik-sucluyu-kayirma-sucundan-3uncu-kez-hakim-karsisinda-2278669" target="_blank">Narin Güran davasında 4. duruşma 30 Mayıs'ta görülecek</a>
-                            <p>02 May 2025, 12:24</p>
-                        </div>
-                    
-                        <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/saglik-bakanligi-personel-alimi-basvuru-kilavuzu-saglik-bakanligi-tercih-kilavuzu-yayinlandi-mi-sozlesmeli-personel-alimi-ne-zaman-2278633" target="_blank">SAĞLIK BAKANLIĞI PERSONEL ALIMI BAŞVURU KILAVUZU: Sağlık Bakanlığı tercih kılavuzu yayınlandı mı Sözleşmeli personel alımı ne zaman?</a>
                             <p>02 May 2025, 12:09</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/istanbulda-marmarada-deprem-mi-oldu-kac-siddetinde-2-mayis-afad-kandilli-rasathanesi-son-depremler-2276241" target="_blank">İSTANBUL'DA, MARMARA'DA DEPREM Mİ OLDU, KAÇ ŞİDDETİNDE? 2 Mayıs AFAD, Kandilli Rasathanesi Son Depremler!</a>
-                            <p>02 May 2025, 11:56</p>
                         </div>
                     </div></div><div class="category-section"><h2>Yabancı Kaynak</h2><div class="container">
                         <div class="card">
@@ -897,6 +905,11 @@
                         </div>
                     
                         <div class="card">
+                            <a href="https://anlatilaninotesi.com.tr/20250502/spor-dunyasi-bu-ani-konusuyor-al-nassr-elendi-ronaldo-sahanin-ortasinda-kendisiyle-tartisti-1095865668.html" target="_blank">Spor dünyası bu anı konuşuyor, Al Nassr elendi: Ronaldo sahanın ortasında kendisiyle tartıştı</a>
+                            <p>02 May 2025, 14:31</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.bbc.com/turkce/articles/c1eg5zx0d2zo" target="_blank">Kulak kiri sağlığınız hakkında neler söylüyor?</a>
                             <p>02 May 2025, 11:23</p>
                         </div>
@@ -919,11 +932,6 @@
                         <div class="card">
                             <a href="https://anlatilaninotesi.com.tr/20250502/mahkeme-kanser-hastasini-hakli-buldu-sgk-ilacin-parasini-odeyecek-1095866950.html" target="_blank">Mahkeme kanser hastasını haklı buldu: SGK ilacın parasını ödeyecek</a>
                             <p>02 May 2025, 13:28</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250502/ferhat-gocer-sinirdayim-diyerek-acikladi-borderline-durumum-olabilir-1095866808.html" target="_blank">Ferhat Göçer, 'sınırdayım' diyerek açıkladı: 'Borderline durumum olabilir'</a>
-                            <p>02 May 2025, 13:22</p>
                         </div>
                     </div></div><div class="category-section"><h2>Ekonomi</h2><div class="container">
                         <div class="card">
@@ -1027,6 +1035,11 @@
                         </div>
                     </div></div><div class="category-section"><h2>Spor</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.cnnturk.com/spor/futbol/fenerbahcede-iki-isme-fransadan-surpriz-talip-2278777" target="_blank">Fenerbahçe'de iki isme Fransa'dan sürpriz talip</a>
+                            <p>02 May 2025, 14:30</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/spor/futbol/fenerbahcede-transfer-harekati-mourinhodan-onay-cikti-2-yildizla-gorusmeler-basliyor-2278680" target="_blank">Fenerbahçe'de transfer harekatı: Mourinho'dan onay çıktı, 2 yıldızla görüşmeler başlıyor...</a>
                             <p>02 May 2025, 11:05</p>
                         </div>
@@ -1069,11 +1082,6 @@
                         <div class="card">
                             <a href="https://www.sabah.com.tr/spor/futbol/2025/05/02/goztepede-hugo-yolcu-dennise-talip-cok" target="_blank">Göztepe'de Hugo yolcu, Dennis'e talip çok</a>
                             <p>02 May 2025, 12:39</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/02/galatasaray-ile-sivasspor-38-randevuda" target="_blank">Galatasaray ile Sivasspor 38. randevuda</a>
-                            <p>02 May 2025, 12:06</p>
                         </div>
                     </div></div><div class="category-section"><h2>Sanat</h2><div class="container">
                         <div class="card">
