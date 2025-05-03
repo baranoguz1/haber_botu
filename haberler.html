@@ -3,276 +3,254 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta 
+      name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#007bff">
-
-
     <title>Güncel Haberler & Hava Durumu & Günlük Reytingler & Vizyondaki Filmler</title>
+
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            }
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+      /* ── Genel Reset & Page Wrapper ── */
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        text-align: center;
+        width: 100%;
+      }
+      .page-wrapper {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-                       
-        .page-wrapper {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 10px;
-            box-sizing: border-box;
-        }
+      /* ── Kart Konteyneri ── */
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px;
-            align-items: flex-start;
-            margin: 0 auto;
-            max-width: inherit;
-            width: 100%;
-            box-sizing: border-box;
+      /* ── Kart Stilleri ── */
+      .card {
+        background: #fff;
+        width: 320px;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      }
+      .card a {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+        color: #333;
+        text-decoration: none;
+        margin-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      .card a:hover {
+        color: #007bff;
+      }
+
+      /* ── Kategori Başlıkları ── */
+      .category-section h2 {
+        display: inline-block;
+        background: linear-gradient(90deg, #007bff, #0056b3);
+        color: #fff;
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 22px;
+        margin: 20px auto;
+      }
+
+      /* ── Hava Durumu ── */
+      .weather-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .weather-card {
+        width: 200px;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        text-align: center;
+        color: #fff;
+        transition: transform 0.3s ease, background-color 0.5s ease;
+      }
+      .weather-card:hover {
+        transform: scale(1.05);
+      }
+      .weather-card img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+      }
+      .weather-card.sunny   { background: linear-gradient(135deg,#ffcc00,#ff9900); }
+      .weather-card.rainy   { background: linear-gradient(135deg,#4a90e2,#2a5298); }
+      .weather-card.snowy   { background: linear-gradient(135deg,#b3e5fc,#64b5f6); color:#000; }
+      .weather-card.cloudy  { background: linear-gradient(135deg,#757f9a,#d7dde8); color:#000; }
+      .weather-card.default-weather {
+        background: linear-gradient(135deg,#6c757d,#343a40);
+      }
+
+      /* ── Döviz Kurları ── */
+      .exchange-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px;
+      }
+      .exchange-card {
+        background: linear-gradient(135deg,#ffcc00,#ff9900);
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        font-size: 18px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+      .exchange-card:hover {
+        transform: scale(1.05);
+      }
+
+      /* ── Film Kartları ── */
+      .film-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .film-card {
+        background: #fff;
+        width: 250px;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .film-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      }
+      .film-card img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      .film-card h3 {
+        margin: 10px 0;
+        font-size: 18px;
+      }
+      .film-card p {
+        font-size: 14px;
+        color: #666;
+      }
+
+      /* ── Gece Modu ── */
+      .dark-mode {
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+      .dark-mode .card,
+      .dark-mode .film-card,
+      .dark-mode .weather-card {
+        background: #2c2c2c;
+        color: #fff;
+      }
+      .dark-mode .exchange-card {
+        background: linear-gradient(135deg,#2a5298,#1e3c72);
+        color: #ffcc00;
+      }
+      .dark-mode .category-section h2 {
+        background: linear-gradient(90deg,#ff5f6d,#ffc371);
+      }
+
+      /* ── Gece Modu Butonu ── */
+      .toggle-button {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 9999;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .toggle-button:hover {
+        background: #0056b3;
+      }
+      .dark-mode .toggle-button {
+        background: #ffcc00;
+        color: #333;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 768px) {
+        .container,
+        .exchange-container,
+        .film-container {
+          flex-direction: column;
+          align-items: center;
         }
-        /* Kart Tasarımı */
-        .card {
-            background: white;
-            width: 320px;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        /* Kategori Başlıkları */
-        .category-section h2 {
-            color: white;
-            background: linear-gradient(90deg, #007bff, #0056b3);
-            padding: 12px;
-            border-radius: 6px;
-            text-align: center;
-            width: fit-content;
-            margin: 20px auto;
-            font-size: 22px;
-        }
-        /* Hava Durumu Kartları */
-        .weather-container {
-            display: flex !important;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            width: 100%;
-        }
-        .weather-card {
-            width: 200px;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            color: white;
-            transition: background-color 0.5s ease, transform 0.3s ease;
-        }
-        .weather-card:hover {
-            transform: scale(1.05);
-        }
-        /* Hava Durumu Sınıfları */
-        .sunny {
-            background: linear-gradient(135deg, #ffcc00, #ff9900);
-        }
-        .rainy {
-            background: linear-gradient(135deg, #4a90e2, #2a5298);
-        }
-        .snowy {
-            background: linear-gradient(135deg, #b3e5fc, #64b5f6);
-            color: black;
-        }
-        .cloudy {
-            background: linear-gradient(135deg, #757f9a, #d7dde8);
-            color: black;
-        }
-        .default-weather {
-            background: linear-gradient(135deg, #6c757d, #343a40);
-        }
-        .weather-card img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
-        }
-        .weather-card p {
-            margin: 5px 0;
-            font-size: 16px;
-        }
-        /* Döviz Kurları Bölümü */
-        .exchange-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-        }
-        .exchange-card {
-            background: linear-gradient(135deg, #ffcc00, #ff9900);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-            font-size: 18px;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-        .exchange-card:hover {
-            transform: scale(1.05);
-        }
-        .dark-mode .exchange-card {
-            background: linear-gradient(135deg, #2a5298, #1e3c72);
-            color: #ffcc00;
-        }
-        /* Haber Linkleri */
-        .card a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 16px;
-            display: block;
-            margin-bottom: 5px;
-            transition: color 0.3s ease;
-        }
-        .card a:hover {
-            color: #007bff;
-        }
-        /* Gece Modu Geçiş Animasyonu */
-        body, .card, .category-section h2, .weather-card {
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-        /* Gece Modu */
-        .dark-mode {
-            background-color: #1e1e1e;
-            color: #ffffff;
-        }
-        .dark-mode .card {
-            background: #2c2c2c;
-            color: #ffffff;
-        }
-        .dark-mode .card a {
-            color: #ffffff;
-        }
-        .dark-mode .card a:hover {
-            color: #ffcc00;
-        }
-        .dark-mode .category-section h2 {
-            background: linear-gradient(90deg, #ff5f6d, #ffc371);
-        }
-        .dark-mode .weather-card {
-            background: linear-gradient(135deg, #2a5298, #1e3c72);
-        }
-        .film-card {
-            background: white;
-            width: 250px;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .film-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        .film-card img {
-            width: 100%;
-            border-radius: 8px;
-        }
-        .film-card h3 {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-        .film-card p {
-            font-size: 14px;
-            color: #666;
-        }
-        .dark-mode .film-card {
-            background-color: #2c2c2c;
-            color: white;
-            box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .dark-mode .film-card h3 {
-            color: #ffcc00;
-            transition: color 0.3s ease;
-        }
-        .dark-mode .film-card p {
-            color: #cccccc;
-            transition: color 0.3s ease;
-        }
-        .dark-mode .film-card img {
-            border: 2px solid #444;
-            transition: border-color 0.3s ease;
-        }
-        /* Gece Modu Butonu */
-        .toggle-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: #007bff;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            z-index: 9999; /* Butonun en üstte olmasını sağlar */
-        }
-        .toggle-button:hover {
-            background: #0056b3;
-        }
-        .dark-mode .toggle-button {
-            background: #ffcc00;
-            color: #333;
-        }
-        .dark-mode .toggle-button:hover {
-            background: #ffaa00;
-        }
-        /* Responsive Ayarlar */
         .card, .film-card, .weather-card {
-            width: 100%;
-            max-width: 320px;
-            box-sizing: border-box;
+          max-width: 320px;
+          width: 100%;
         }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: stretch;
+        table {
+          font-size: 14px;
         }
+        .toggle-button {
+          font-size: 14px;
+          padding: 8px 12px;
+        }
+        
         .ratings-container {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: center;
             overflow-x: auto;
             max-width: 100%;
         }
+                       
         .film-container {
             display: flex;
             flex-wrap: wrap;
@@ -282,58 +260,187 @@
             width: 100%;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .exchange-container {
-                flex-direction: column;
-            }
-            .weather-container {
-                flex-wrap: wrap;
-            }
-            table {
-                font-size: 14px;
-            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
         }
-        @media (max-width: 768px) {
-            .toggle-button {
-                font-size: 14px;
-                padding: 8px 12px;
-            }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
         }
+        th {
+            background-color: #f2f2f2;
+        }
+        .ratings-container, table, th, td {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        .dark-mode .ratings-container {
+            background-color: #2c2c2c;
+            color: white;
+            border-color: #444;
+        }
+        .dark-mode table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #333;
+        }
+        .dark-mode th, .dark-mode td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+        .dark-mode th {
+            background-color: #444;
+            color: #ffcc00;
+        }
+        .section-block {
+            width: 100%;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0 10px;
+            color: #333; /* Gündüz modda koyu renk yazı */
+        }
+
+        /* Gece modu için ayrı stil */
+        .dark-mode .section-title {
+            color: white;
+        }
+                       
+        /* ── Gece Modu Metin Renkleri ── */
+        .dark-mode {
+        /* Genel metin rengi */
+        color: #EEE !important;
+        }
+
+        /* Paragraflar ve bağlantılar */
+        .dark-mode p,
+        .dark-mode a,
+        .dark-mode .card a {
+        color: #EEE !important;
+        }
+
+        /* Bölüm başlıkları (h2) */
+        .dark-mode .category-section h2 {
+        color: #FFF !important;
+        }
+
+        /* Film başlıkları */
+        .dark-mode .film-card h3 {
+        color: #FFCC00 !important;
+        }
+
+        /* Tablo satırları ve hücreleri */
+        .dark-mode table th,
+        .dark-mode table td {
+        color: #EEE !important;
+        }
+
+        /* Toggle buton içindeki ikon/metin */
+        .dark-mode .toggle-button {
+        color: #333 !important;
+        }
+        
+         /* ── Gece Modu ── */
+        .dark-mode {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        .dark-mode .card,
+        .dark-mode .film-card,
+        .dark-mode .weather-card {
+            background: #2c2c2c;
+            color: #fff;
+        }
+
+        /* ── Haber kartı linkleri ── */
+        .dark-mode .card a {
+            color: #FFF !important;
+        }
+        .dark-mode .card a:hover {
+            color: #FFCC00 !important;
+        }
+        .dark-mode .card p {
+            color: #EEE !important;
+        }
+      }
+    /* ── Vizyondaki Filmler Bölümü Düzeltme ── */
+    .film-container {
+    /* Sayfa wrapper ile aynı yatay boşluğu vermek için */
+    padding: 0 10px;
+    /* İçeriği tam ortalamak için */
+    margin: 0 auto;
+    /* Zaten flex ve justify-content:center; varsa sorun yok */
+    justify-content: center;
+    box-sizing: border-box;
+    }
+      
+    @media (max-width: 768px) {
+    /* .container sütuna dönerken film-container satırda kalsın */
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Filmler satırı kaplasın ve kartları ortalasın */
+    .page-wrapper > .film-container {
+        display: flex;               
+        flex-direction: row;         
+        justify-content: center;     
+        align-items: flex-start;
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0 16px;             
+        box-sizing: border-box;
+    }
+
+    /* Kart genişlikleri */
+    .card, .film-card, .weather-card {
+        max-width: 320px;
+        width: 100%;
+    }
+}
+
+
     </style>
 </head>
 <body>
     <div class="page-wrapper">
-    <!-- Inline onclick kaldırıldı, event listener DOMContentLoaded ile ekleniyor -->
-    <button class="toggle-button">🌙 Gece Modu</button>
-    <p>Son Güncelleme: 03 May 2025, 19:30</p>
-    <div class="container">
+        <button class="toggle-button">🌙 Gece Modu</button>
+        <div class="container">
 
+      <!-- Son Güncelleme -->
+      <p>Son Güncelleme: 03 May 2025, 20:28</p>
+
+            <!-- Hava Durumu -->
             <h2 class="section-title">İstanbul Saatlik Hava Durumu</h2>
             <div class="weather-container">
-            
+
                     <div class="weather-card default-weather">
                         <p><strong>21:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADeElEQVR4nO3cWYiOURzH8a8tichYQ1HihkKWbBe2GNxQlEQiypVSRLlQ3LmTC2UpceFKSZZBQvY1O7mwl0RZQkLRyaEhxjve5/z/58nvU2+jTM/vzPzmfbZznhcRERERERERERERERERERERERERETNNrIJqa6cUtakaYDQwGOgPdAPax/9rCrwGngPXgavAKeBhEcF1dfuL2EyDmidPKEZfYAIwLnQLtK5gq5Pr/fsYsBc4CZzL+QfNvZBewBpgbpXbGRNfwVFgFXCmgPEVrmmOgwI6ATuAewWU8auxwGngCDC04G1XLcdCZgG3gDmJj3Fh93ceWJ4wo9FyK2QTsBPoaJi5DjiRy+47p0LqgEVO2aPju7KnU/4PORTSPB5oJzmPo0/chbmWkkMhB+udAXnrDJz13H15F7I5Hlxz0hW4ALTwGJNnIdOBhY75DRkIrPUI9iqkLbDNKbtSKzx2pV6FbIml5M78j8ajkA7ATIfcfxHOuKZaBnoUstEhsxpbgWZWYdaF9CzRu+O7LsBEqzDrQiZX8D05Kmwy52+sC6k1zivKbKuLRctC2lgfIAtUE2/bJ2dZyJgSzVD+jsm727KQ4YZZKQyyCLEspJ9hVgqdLEIsC+lumJVCJQsrqmZZSDvDrBRaWoRYFvLFMKu0LAvJdYVLVix/Se9K8PtoyGeLEMtCnhpmpfDWIsSykDuGWSm8sgixLOSiYVYKtyxCLAs5YpiVwmGLEMtCnsXV52X0MS7kS876VHRPSQvZBbyxCLIuxORtn8A+qyDrQq7E5Zpl8glI/+hU5HH1vMAhsxrhcYWXVmEehdws0Snwe2C9ZaDX/aX5TrmNtcQ60KuQG8BKp+xK7Y5rskx53oFdF5/1y1F4tHqxx7g8CwnzI6OAx45j+JMR8ULWXA5zFCOBFxmM47vwJNdtr/AcCnkCDAMeZDCWsG7skOcAcpnFux9XpVx2yg/XGQMsLwD/JKdp1XDOPzx+coOl7fGJqWu+P/43uc1zh9sUq+MqwUuJsx7H64x5wKPEWRXLdeFBeDJ3CDADuFvwtsNd22VAb2BDwduuWu5rbXfF1zRgfPza4x+28zZe6IUD9oHMzup+UpbFz7vja2m9j2kaFJd3hlX1reL3hc9G+RCPRy/itOvxOFuZbQkiIiIiIiIiIiIiIiIiIiIiIiIi/wfgKw42dDZq2n0SAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Açık</p>
-                        <p><strong>13.58°C</strong></p>
+                        <p><strong>13.73°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>00:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADeElEQVR4nO3cWYiOURzH8a8tichYQ1HihkKWbBe2GNxQlEQiypVSRLlQ3LmTC2UpceFKSZZBQvY1O7mwl0RZQkLRyaEhxjve5/z/58nvU2+jTM/vzPzmfbZznhcRERERERERERERERERERERERERETNNrIJqa6cUtakaYDQwGOgPdAPax/9rCrwGngPXgavAKeBhEcF1dfuL2EyDmidPKEZfYAIwLnQLtK5gq5Pr/fsYsBc4CZzL+QfNvZBewBpgbpXbGRNfwVFgFXCmgPEVrmmOgwI6ATuAewWU8auxwGngCDC04G1XLcdCZgG3gDmJj3Fh93ceWJ4wo9FyK2QTsBPoaJi5DjiRy+47p0LqgEVO2aPju7KnU/4PORTSPB5oJzmPo0/chbmWkkMhB+udAXnrDJz13H15F7I5Hlxz0hW4ALTwGJNnIdOBhY75DRkIrPUI9iqkLbDNKbtSKzx2pV6FbIml5M78j8ajkA7ATIfcfxHOuKZaBnoUstEhsxpbgWZWYdaF9CzRu+O7LsBEqzDrQiZX8D05Kmwy52+sC6k1zivKbKuLRctC2lgfIAtUE2/bJ2dZyJgSzVD+jsm727KQ4YZZKQyyCLEspJ9hVgqdLEIsC+lumJVCJQsrqmZZSDvDrBRaWoRYFvLFMKu0LAvJdYVLVix/Se9K8PtoyGeLEMtCnhpmpfDWIsSykDuGWSm8sgixLOSiYVYKtyxCLAs5YpiVwmGLEMtCnsXV52X0MS7kS876VHRPSQvZBbyxCLIuxORtn8A+qyDrQq7E5Zpl8glI/+hU5HH1vMAhsxrhcYWXVmEehdws0Snwe2C9ZaDX/aX5TrmNtcQ60KuQG8BKp+xK7Y5rskx53oFdF5/1y1F4tHqxx7g8CwnzI6OAx45j+JMR8ULWXA5zFCOBFxmM47vwJNdtr/AcCnkCDAMeZDCWsG7skOcAcpnFux9XpVx2yg/XGQMsLwD/JKdp1XDOPzx+coOl7fGJqWu+P/43uc1zh9sUq+MqwUuJsx7H64x5wKPEWRXLdeFBeDJ3CDADuFvwtsNd22VAb2BDwduuWu5rbXfF1zRgfPza4x+28zZe6IUD9oHMzup+UpbFz7vja2m9j2kaFJd3hlX1reL3hc9G+RCPRy/itOvxOFuZbQkiIiIiIiIiIiIiIiIiIiIiIiIi/wfgKw42dDZq2n0SAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Açık</p>
-                        <p><strong>12.44°C</strong></p>
+                        <p><strong>13.12°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>03:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADeElEQVR4nO3cWYiOURzH8a8tichYQ1HihkKWbBe2GNxQlEQiypVSRLlQ3LmTC2UpceFKSZZBQvY1O7mwl0RZQkLRyaEhxjve5/z/58nvU2+jTM/vzPzmfbZznhcRERERERERERERERERERERERERETNNrIJqa6cUtakaYDQwGOgPdAPax/9rCrwGngPXgavAKeBhEcF1dfuL2EyDmidPKEZfYAIwLnQLtK5gq5Pr/fsYsBc4CZzL+QfNvZBewBpgbpXbGRNfwVFgFXCmgPEVrmmOgwI6ATuAewWU8auxwGngCDC04G1XLcdCZgG3gDmJj3Fh93ceWJ4wo9FyK2QTsBPoaJi5DjiRy+47p0LqgEVO2aPju7KnU/4PORTSPB5oJzmPo0/chbmWkkMhB+udAXnrDJz13H15F7I5Hlxz0hW4ALTwGJNnIdOBhY75DRkIrPUI9iqkLbDNKbtSKzx2pV6FbIml5M78j8ajkA7ATIfcfxHOuKZaBnoUstEhsxpbgWZWYdaF9CzRu+O7LsBEqzDrQiZX8D05Kmwy52+sC6k1zivKbKuLRctC2lgfIAtUE2/bJ2dZyJgSzVD+jsm727KQ4YZZKQyyCLEspJ9hVgqdLEIsC+lumJVCJQsrqmZZSDvDrBRaWoRYFvLFMKu0LAvJdYVLVix/Se9K8PtoyGeLEMtCnhpmpfDWIsSykDuGWSm8sgixLOSiYVYKtyxCLAs5YpiVwmGLEMtCnsXV52X0MS7kS876VHRPSQvZBbyxCLIuxORtn8A+qyDrQq7E5Zpl8glI/+hU5HH1vMAhsxrhcYWXVmEehdws0Snwe2C9ZaDX/aX5TrmNtcQ60KuQG8BKp+xK7Y5rskx53oFdF5/1y1F4tHqxx7g8CwnzI6OAx45j+JMR8ULWXA5zFCOBFxmM47vwJNdtr/AcCnkCDAMeZDCWsG7skOcAcpnFux9XpVx2yg/XGQMsLwD/JKdp1XDOPzx+coOl7fGJqWu+P/43uc1zh9sUq+MqwUuJsx7H64x5wKPEWRXLdeFBeDJ3CDADuFvwtsNd22VAb2BDwduuWu5rbXfF1zRgfPza4x+28zZe6IUD9oHMzup+UpbFz7vja2m9j2kaFJd3hlX1reL3hc9G+RCPRy/itOvxOFuZbQkiIiIiIiIiIiIiIiIiIiIiIiIi/wfgKw42dDZq2n0SAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Açık</p>
-                        <p><strong>10.88°C</strong></p>
+                        <p><strong>11.83°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
@@ -522,84 +629,6 @@
                 </div>
             </div> <!-- reyting bloğu kapanışı -->
             
-                </table>
-            </div>
-    <style>
-        .ratings-container {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            text-align: center;
-            overflow-x: auto;
-            max-width: 100%;
-        }
-                       
-        .film-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            width: 100%;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .ratings-container, table, th, td {
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-        .dark-mode .ratings-container {
-            background-color: #2c2c2c;
-            color: white;
-            border-color: #444;
-        }
-        .dark-mode table {
-            border-collapse: collapse;
-            width: 100%;
-            background-color: #333;
-        }
-        .dark-mode th, .dark-mode td {
-            border: 1px solid #555;
-            padding: 10px;
-            text-align: center;
-            color: #fff;
-        }
-        .dark-mode th {
-            background-color: #444;
-            color: #ffcc00;
-        }
-        .section-block {
-            width: 100%;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 20px 0 10px;
-            color: #333; /* Gündüz modda koyu renk yazı */
-        }
-
-        /* Gece modu için ayrı stil */
-        .dark-mode .section-title {
-            color: white;
-        }
-
-
-    </style> 
             <h2 class="section-title">🎬 Vizyondaki Filmler</h2>
             <div class="film-container">
             
@@ -610,6 +639,7 @@
                             <h3>Bir Minecraft Filmi</h3>
                             <p>Dört uyumsuz, gizemli bir portaldan aniden Üst Dünya'ya çekildiklerinde kendilerini sıradan sorunlarla boğuşurken bulurlar: hayal gücüyle beslenen tuhaf, kübik bir harikalar diyarı. Eve geri dönmek iç...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Thunderbolts*+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -619,6 +649,7 @@
                             <h3>Thunderbolts*</h3>
                             <p>Yelena Belova önderliğinde, MCU'nun en beklenmedik kahramanlarından oluşan aykırı bir takım bir araya geliyor. Valentina Allegra de Fontaine’in kurduğu ölümcül bir tuzağa düşen bu dışlanmış karakterle...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Kayıp+Dünya+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -628,6 +659,7 @@
                             <h3>Kayıp Dünya</h3>
                             <p>Bu fantastik macera, aynı adı taşıyan George R.R. Martin öykülerinden uyarlanmıştır. Filmin yönetmeni Paul W.S. Anderson’dır. Bir büyücü, Kayıp Diyarlar’a doğru yolculuk eder. Amacı, bir kişinin kurt ...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Günahkarlar+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -637,6 +669,7 @@
                             <h3>Günahkarlar</h3>
                             <p>Sorunlu hayatlarını geride bırakmaya çalışan ikiz kardeşler yeniden başlamak için memleketlerine döner, ancak daha büyük bir kötülüğün onları karşılamak için beklediğini keşfederler. "Şeytanla dans et...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Drop:+Kabul+Et+veya+Reddet+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -646,6 +679,7 @@
                             <h3>Drop: Kabul Et veya Reddet</h3>
                             <p>Yıllar sonra ilk randevusuna çıkan dul bir anne olan Violet, beklediğinden daha yakışıklı ve çekici olan randevusu Henry ile şık bir restorana geldiğinde rahatlar. Ancak Violet, telefonuna gelen anoni...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=The+Woman+in+the+Yard+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -655,6 +689,7 @@
                             <h3>The Woman in the Yard</h3>
                             <p>...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Şafağa+Kadar+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -664,6 +699,7 @@
                             <h3>Şafağa Kadar</h3>
                             <p>Kız kardeşi Melanie'nin gizemli bir şekilde kaybolmasının üzerinden bir yıl geçtikten sonra, Clover ve arkadaşları cevaplar bulmak için kız kardeşinin ortadan kaybolduğu ücra vadiye doğru yola çıkarla...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Amatör+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -673,6 +709,7 @@
                             <h3>Amatör</h3>
                             <p>Filmde Rami Malek, Charlie Heller adında zeki ancak içine kapanık bir deşifre uzmanını canlandırıyor. Langley’deki CIA merkezi binasında bodrum katındaki ofisinde çalışan Heller’ın hayatı, Londra’daki...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Kara+Torba+Operasyonu+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -682,6 +719,7 @@
                             <h3>Kara Torba Operasyonu</h3>
                             <p>Efsanevi gizli ajanlar George Woodhouse ve eşi Kathryn, Kathryn'in aniden vatana ihanetle suçlanmasıyla kendilerini siyasi bir fırtınanın ortasında bulurlar. Hem eşine hem de ülkesine koşulsuz sadık o...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Bataklık+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -691,6 +729,7 @@
                             <h3>Bataklık</h3>
                             <p>Bataklık’ta (The Bayou), Kyle ölen ablasının küllerini taşıdığı yolculukta talihsiz bir kazanın kurbanı olur. Uçağı Louisiana’nın ünlü Bayou bataklığında haritalanmamış ıssız bir noktaya düşer. Yolcul...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Ucuz+Roman+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -700,6 +739,7 @@
                             <h3>Ucuz Roman</h3>
                             <p>Jules Winnfield ve Vincent Vega, mafya babası patronları Marsellus Wallace’tan çalınan bir çantayı geri almaya giden iki profesyonel tetikçidir. Wallace aynı zamanda Vincent’a, kendisi birkaç gün sonr...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Gözbebeğim+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -709,6 +749,7 @@
                             <h3>Gözbebeğim</h3>
                             <p>Özel bir okula devam eden bir grup yakın arkadaşın hepsi, güneşli yıldız öğrenci Sun-ah'ya karşı zayıflatıcı bir aşk beslemektedir. Grubun aşık olmadığını iddia eden tek üyesi Jin-woo'dur, ancak o da ...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Sayko+Terapi:+Bir+Seri+Katil+Hakkında+Yazmaya+Karar+Veren+Yazarın+Sığ+Hikayesi+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -718,6 +759,7 @@
                             <h3>Sayko Terapi: Bir Seri Katil Hakkında Yazmaya Karar Veren Yazarın Sığ Hikayesi</h3>
                             <p>Boşanma sürecinde yazarlık kariyeri de çıkmaza giren bir adam, emekli bir seri katille beklenmedik bir dostluk kurar. Bu tuhaf ilişki, adamın hayatını ve yazarlığını tamamen değiştirir. Seri katil, gü...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Armand+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -727,6 +769,7 @@
                             <h3>Armand</h3>
                             <p>Okul tatiline kısa bir süre kala iki çocuk hakkında ortaya atılan bir suçlama ortalığı karıştırır. Ünlü bir oyuncu, eski can dostlar, ölü bir adam ve iki çocuğun karıştığı bir skandalın dilden dile ya...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=June+ve+John+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -736,6 +779,7 @@
                             <h3>June ve John</h3>
                             <p>...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Exorcism+Chronicles:+Başlangıç+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -745,6 +789,7 @@
                             <h3>Exorcism Chronicles: Başlangıç</h3>
                             <p>Doktor olan Peder Park, doğaüstü kötülüklere inanmayı reddeden bir kilise adına düzenlediği şeytan çıkarma ayinlerinden sonra aforoz edildiğinde rahip olmaya karar verir. Eski bir dostu olan gizli büy...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Son+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -754,6 +799,7 @@
                             <h3>Son</h3>
                             <p>Yıllardır etraflarındaki harabe dünyadan izole, eski bir tuz madeninden lüks bir eve dönüştürdükleri sığınakta yaşayan ailenin oğlu, dış dünyayı hiç tecrübe etmeden büyür. Yabancı bir kız birden sığın...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Υπάρχω+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -763,6 +809,7 @@
                             <h3>Υπάρχω</h3>
                             <p>...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Şeytanla+Bakışma+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -772,6 +819,7 @@
                             <h3>Şeytanla Bakışma</h3>
                             <p>Paranormal olayları soruşturan araştırmacılardan oluşan bir ekip, karanlık bir geçmişe sahip bir evde meydana geldiği iddia edilen bir dizi rahatsızlığı araştırmak üzere Malezya'nın Fraser Tepesi'nin ...</p>
                         </div>
+                    
                     </a>
                     
                     <a href="https://www.google.com/search?q=Öldürdüğün+Şeyler+site:paribucineverse.com+kanyon" target="_blank" style="text-decoration: none;">
@@ -781,16 +829,29 @@
                             <h3>Öldürdüğün Şeyler</h3>
                             <p>Hasta annesinin ölümü ile sarsılan Ali, babasından intikam almak üzere gizemli bahçıvanıyla kafa kafaya verir. Ancak ailesi ve yetkililer yaşlı adamın ortadan kayboluşunu araştırdıkça Ali eylemlerinin...</p>
                         </div>
+                    
                     </a>
-                    <div class="category-section"><h2>Gündem</h2><div class="container">
+                    
+                </div>  <!-- /.film-container -->
+            <div class="category-section"><h2>Gündem</h2><div class="container">
                         <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/son-dakika-haberi-bahceli-2279285" target="_blank">Devlet Bahçeli'den 3 Mayıs Milliyetçiler Günü mesajı</a>
-                            <p>03 May 2025, 19:24</p>
+                            <a href="https://www.cnnturk.com/turkiye/son-dakika-haberi-sirri-sureyya-onder-hayatini-kaybetti-2279375" target="_blank">Son Dakika Haberi: Sırrı Süreyya Önder hayatını kaybetti</a>
+                            <p>03 May 2025, 19:56</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/son-dakika-haberi-sirri-sureyya-onder-hayatini-kaybetti-2279375" target="_blank">Son Dakika Haberi: Sırrı Süreyya Önder hayatını kaybetti</a>
-                            <p>03 May 2025, 19:13</p>
+                            <a href="https://www.cnnturk.com/video/turkiye/son-dakika-haberi-cumhurbaskani-erdogan-kktc-hukumet-binasi-acilisinda-konusuyor-2279380" target="_blank">Son Dakika Haberi: Cumhurbaşkanı Erdoğan: Adlarımız farklı olsa da soyadımız KKTC'dir</a>
+                            <p>03 May 2025, 19:29</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/israil-basbakanina-ucus-izni-iddiasina-ankaradan-yanit-2279370" target="_blank">İsrail Başbakanı'na uçuş izni iddiasına Ankara'dan yanıt</a>
+                            <p>03 May 2025, 19:27</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/son-dakika-haberi-bahceli-2279285" target="_blank">Devlet Bahçeli'den 3 Mayıs Milliyetçiler Günü mesajı</a>
+                            <p>03 May 2025, 19:24</p>
                         </div>
                     
                         <div class="card">
@@ -814,16 +875,6 @@
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.cnnturk.com/video/turkiye/son-dakika-haberi-cumhurbaskani-erdogan-kktc-hukumet-binasi-acilisinda-konusuyor-2279380" target="_blank">Son Dakika Haberi: Cumhurbaşkanı Erdoğan: Adlarımız farklı olsa da soyadımız KKTC'dir</a>
-                            <p>03 May 2025, 18:15</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/israil-basbakanina-ucus-izni-iddiasina-ankaradan-yanit-2279370" target="_blank">İsrail Başbakanı'na uçuş izni iddiasına Ankara'dan yanıt</a>
-                            <p>03 May 2025, 18:00</p>
-                        </div>
-                    
-                        <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/selcuk-bayraktar-turkiye-savunma-sanayisinde-yurt-disi-bagimliligini-yuzde-20lere-dusurdu-2279249" target="_blank">Selçuk Bayraktar: Türkiye savunma sanayisinde yurt dışı bağımlılığını yüzde 20’lere düşürdü</a>
                             <p>03 May 2025, 17:51</p>
                         </div>
@@ -834,8 +885,43 @@
                         </div>
                     </div></div><div class="category-section"><h2>Yabancı Kaynak</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.bbc.com/news/articles/cm2536m9r2eo" target="_blank">Seven killed in South Sudan hospital and market bombing, charity says</a>
+                            <p>03 May 2025, 17:05</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/03/world/europe/oil-prices-tariffs.html" target="_blank">Oil Prices Are Falling. Here’s Where That Could Spell Trouble.</a>
+                            <p>03 May 2025, 16:59</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/sport/2025/may/03/mp-luke-charters-calls-for-trials-of-lifting-drinking-ban-in-english-football-stands" target="_blank">MP calls for trials of lifting drinking ban in English football stands</a>
+                            <p>03 May 2025, 16:51</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/02/world/asia/australia-prime-minister-election.html" target="_blank">Australia Election Results: Prime Minister Albanese Wins 2nd Term</a>
+                            <p>03 May 2025, 16:43</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.nytimes.com/2025/05/03/world/europe/ukraine-russia-ceasefire-talks.html" target="_blank">Ukraine Rejects Russian Call for a Three-Day Cease-Fire</a>
-                            <p>03 May 2025, 16:21</p>
+                            <p>03 May 2025, 16:35</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/law/2025/may/03/mohsen-mahdawi-trump-deportations" target="_blank">‘What is left of our democracy?’: freed Palestinian human rights advocate warns of US authoritarian rule</a>
+                            <p>03 May 2025, 16:35</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/02/world/canada/mark-carney-trump-visit-tariffs.html" target="_blank">Canada’s Mark Carney to Visit Trump and Begin Tariff Negotiations</a>
+                            <p>03 May 2025, 16:33</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/tv-and-radio/2025/may/03/lorraine-kelly-has-ovaries-and-fallopian-tubes-removed-in-preventative-measure" target="_blank">Lorraine Kelly has ovaries and fallopian tubes removed in preventative measure</a>
+                            <p>03 May 2025, 16:26</p>
                         </div>
                     
                         <div class="card">
@@ -847,42 +933,17 @@
                             <a href="https://www.theguardian.com/politics/2025/may/03/now-nigel-farage-not-keir-starmer-is-feeding-publics-appetite-for-change" target="_blank">Now Farage not Starmer is feeding public’s appetite for change</a>
                             <p>03 May 2025, 16:08</p>
                         </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/society/2025/may/03/mother-of-autistic-boy-left-with-10000-debt-after-breaching-dwp-rules-by-192-a-week" target="_blank">Mother of autistic boy left with £10,000 debt after breaching DWP rules by £1.92 a week</a>
-                            <p>03 May 2025, 16:00</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.bbc.com/news/articles/c93gzyzj33po" target="_blank">Six people arrested after three shot dead in Sweden</a>
-                            <p>03 May 2025, 16:00</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/australia-news/2025/may/04/anthony-albaneses-experience-showed-but-a-truly-terrible-trump-inspired-coalition-campaign-helped" target="_blank">The Australian PM’s experience showed but a truly terrible Trump-inspired Coalition election campaign helped</a>
-                            <p>03 May 2025, 15:34</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/uk-news/2025/may/03/labour-targets-international-students-claiming-asylum-after-losses-to-reform-in-local-elections" target="_blank">Labour targets international students claiming asylum after losses to Reform in local elections</a>
-                            <p>03 May 2025, 15:29</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/03/world/europe/czech-treasure-gold-discovery.html" target="_blank">Hikers Stumble Upon a Pile of Gold Coins, Igniting a Historical Hunt</a>
-                            <p>03 May 2025, 15:25</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/australia-news/2025/may/04/anthony-albanese-claims-a-piece-of-history-as-scale-of-victory-stuns-raucous-crowd-australian-federal-election-2025" target="_blank">Australian election: Anthony Albanese claims a piece of history as scale of Labor victory stuns raucous crowd | Josh Butler</a>
-                            <p>03 May 2025, 15:04</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/us-news/2025/may/03/saginaw-michigan-canada-trump-tariffs" target="_blank">This hockey town in Michigan has deep ties to Canada. Then came Trump’s tariffs</a>
-                            <p>03 May 2025, 15:00</p>
-                        </div>
                     </div></div><div class="category-section"><h2>Dünya</h2><div class="container">
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/dunya/tehdit-iddiasi-sirbistan-cumhurbaskani-fenalasti-abdden-ayrildi-2279439" target="_blank">Tehdit iddiası! Sırbistan Cumhurbaşkanı fenalaştı ABD'den ayrıldı</a>
+                            <p>03 May 2025, 20:01</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/dunya/green-card-sonuclari-2025-dvprogram-state-gov-green-card-basvuru-sonuclari-ne-zaman-saat-kacta-aciklanacak-2279218" target="_blank">SON DAKİKA | GREEN CARD SONUÇLARI 2025 (dvprogram.state.gov): Green Card sonuçları nasıl öğrenilir?</a>
+                            <p>03 May 2025, 19:39</p>
+                        </div>
+                    
                         <div class="card">
                             <a href="https://www.cnnturk.com/dunya/batakliga-dusen-ucakta-korkunc-anlar-timsahlar-ve-yilanlarda-dolu-suda-tam-36-saat-2279423" target="_blank">Bataklığa düşen uçakta korkunç anlar! Timsahlar ve yılanlarda dolu suda tam 36 saat...</a>
                             <p>03 May 2025, 19:17</p>
@@ -899,38 +960,28 @@
                         </div>
                     
                         <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250503/zelenskiy-yuksek-radada-abd-ile-kaynak-anlasmasini-onaylamak-istemeyen-partiler-var--1095895543.html" target="_blank">Zelenskiy: Yüksek Rada'da ABD ile kaynak anlaşmasını onaylamak istemeyen partiler var </a>
-                            <p>03 May 2025, 19:29</p>
-                        </div>
-                    
-                        <div class="card">
                             <a href="https://www.bbc.com/turkce/articles/cd6jd230l41o" target="_blank">Sırrı Süreyya Önder hayatını kaybetti</a>
-                            <p>03 May 2025, 16:27</p>
+                            <p>03 May 2025, 16:53</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250503/erdogan-onderin-de-son-donemde-buyuk-emek-verdigi-terorsuz-turkiye-menziline-vasil-olacagimiza-1095895410.html" target="_blank">Erdoğan: Önder'in de son dönemde büyük emek verdiği Terörsüz Türkiye menziline vasıl olacağımıza yürekten inanıyorum</a>
-                            <p>03 May 2025, 19:04</p>
+                            <a href="https://anlatilaninotesi.com.tr/20250503/opec-uyesi-8-ulke-haziran-ayinda-petrol-uretim-sinirini-artiracak-1095895838.html" target="_blank">OPEC+ üyesi 8 ülke haziran ayında petrol üretim sınırını artıracak</a>
+                            <p>03 May 2025, 19:46</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.cnnturk.com/dunya/green-card-sonuclari-2025-dvprogram-state-gov-green-card-basvuru-sonuclari-ne-zaman-saat-kacta-aciklanacak-2279218" target="_blank">GREEN CARD SONUÇLARI 2025 (dvprogram.state.gov): Green Card başvuru sonuçları ne zaman, saat kaçta açıklanacak?</a>
-                            <p>03 May 2025, 15:31</p>
+                            <a href="https://www.bbc.com/turkce/articles/c8epxlrg7dlo" target="_blank">Sırrı Süreyya Önder kimdir?</a>
+                            <p>03 May 2025, 16:42</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250503/rus-disisleri-zelenskiyin-aciklamalarini-degerlendirdi-uluslararasi-olcekte-bir-teroristin-klasik-1095894477.html" target="_blank">Rus Dışişleri, Zelenskiy'in açıklamalarını değerlendirdi: 'Uluslararası ölçekte bir teröristin klasik tehdidi'</a>
-                            <p>03 May 2025, 18:17</p>
+                            <a href="https://anlatilaninotesi.com.tr/20250503/abd-icisleri-bakani-uyardi-yaz-aylarinda-ulkede-buyuk-capli-bir-elektrik-kesintisi-yasanabilir-1095895660.html" target="_blank">ABD İçişleri Bakanı uyardı: 'Yaz aylarında ülkede büyük çaplı bir elektrik kesintisi yaşanabilir'</a>
+                            <p>03 May 2025, 19:37</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250503/askeri-uzman-mihailov-zelenskiyin-ortulu-tehdidini-degerlendirdi-rejim-bir-teror-devletine-donustu-1095894164.html" target="_blank">Askeri uzman Mihailov, Zelenskiy'in 'örtülü tehdidini' değerlendirdi: 'Rejim, bir terör devletine dönüştü'</a>
-                            <p>03 May 2025, 17:28</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250503/cumhurbaskani-erdogan-adlarimiz-farkli-olsa-da-soyadimiz-kktcdir-1095893942.html" target="_blank">Cumhurbaşkanı Erdoğan: Adlarımız farklı olsa da soyadımız KKTC'dir</a>
-                            <p>03 May 2025, 17:18</p>
+                            <a href="https://www.bbc.com/turkce/articles/c87pvqr85e4o" target="_blank">Almanya istihbaratının AfD'yi 'aşırı sağ' olarak sınıflandırmasına ABD'den sert tepki</a>
+                            <p>03 May 2025, 16:35</p>
                         </div>
                     </div></div><div class="category-section"><h2>Ekonomi</h2><div class="container">
                         <div class="card">
@@ -1035,7 +1086,7 @@
                     </div></div><div class="category-section"><h2>Spor</h2><div class="container">
                         <div class="card">
                             <a href="https://www.cnnturk.com/spor/futbol/live-galatasaray-sivasspor-bein-sports-1-canli-i-zle-galatasaray-sivasspor-bein-sports-1-sifresiz-izle-galatasaray-sivasspor-bein-2279244" target="_blank">Galatasaray - Sivasspor Bein Sports 1 Canlı İzle | Aslan, Yiğidolar'a karşı</a>
-                            <p>03 May 2025, 19:23</p>
+                            <p>03 May 2025, 19:51</p>
                         </div>
                     
                         <div class="card">
@@ -1069,18 +1120,18 @@
                         </div>
                     
                         <div class="card">
+                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/03/eren-elmali-sakatlandi" target="_blank">Eren Elmalı sakatlandı</a>
+                            <p>03 May 2025, 20:06</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/03/eren-elmali-sakatlandi" target="_blank">Eren Elmalı sakatlandı</a>
+                            <p>03 May 2025, 20:06</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/spor/futbol/son-dakika-acun-ilicalinin-sahibi-oldugu-hull-city-kumede-kalma-savasini-kazandi-2279376" target="_blank">SON DAKİKA | Acun Ilıcalı'nın sahibi olduğu Hull City, kümede kalma savaşını kazandı</a>
                             <p>03 May 2025, 16:37</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/spor/futbol/fenerbahce-kurulus-ve-ataturkun-kulubu-ziyaret-edisinin-yil-donumunu-kutladi-2279372" target="_blank">Fenerbahçe, kuruluş ve Atatürk'ün kulübü ziyaret edişinin yıl dönümünü kutladı</a>
-                            <p>03 May 2025, 16:04</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/spor/futbol/besiktas-derbiye-hazir-2279364" target="_blank">Beşiktaş derbiye hazır</a>
-                            <p>03 May 2025, 15:04</p>
                         </div>
                     </div></div><div class="category-section"><h2>Sanat</h2><div class="container">
                         <div class="card">
@@ -1135,7 +1186,7 @@
                     </div></div>
         </div>
     </div>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const toggleButton = document.querySelector(".toggle-button");
