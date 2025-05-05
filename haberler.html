@@ -416,7 +416,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 05 May 2025, 14:00</p>
+      <p>Son Güncelleme: 05 May 2025, 14:01</p>
 
             <!-- Hava Durumu -->
             <h2 class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -636,7 +636,7 @@
             function renderRatingsPieChart(isDark) {
                 const ctx = document.getElementById('ratingsPieChart').getContext('2d');
 
-                const textColor = isDark ? '#ffffff' : '#333333';
+                const textColor = isDark ? '#ffffff' : '#000000';
 
                 return new Chart(ctx, {
                     type: 'pie',
@@ -662,6 +662,7 @@
                         }]
                     },
                     options: {
+                        responsive: true,
                         plugins: {
                             title: {
                                 display: true,
@@ -674,7 +675,10 @@
                             },
                             legend: {
                                 labels: {
-                                    color: textColor
+                                    color: textColor,
+                                    font: {
+                                        size: 14
+                                    }
                                 }
                             }
                         }
@@ -682,13 +686,19 @@
                 });
             }
 
-            let pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
+            let pieChartInstance = null;
+
+            document.addEventListener("DOMContentLoaded", function() {
+                pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
+            });
 
             const toggleButton = document.querySelector(".toggle-button");
             if (toggleButton) {
                 toggleButton.addEventListener("click", function () {
                     setTimeout(() => {
-                        pieChartInstance.destroy();
+                        if (pieChartInstance) {
+                            pieChartInstance.destroy();
+                        }
                         pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
                     }, 300);
                 });
