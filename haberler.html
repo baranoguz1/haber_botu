@@ -427,7 +427,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 06 May 2025, 12:40</p>
+      <p>Son Güncelleme: 06 May 2025, 12:42</p>
 
             <!-- Hava Durumu -->
             <h2 class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -640,106 +640,106 @@
                 </div>
             </div> <!-- reyting bloğu kapanışı -->
             
-            <h3 style="margin-top:30px;">Günlük 10 Programın Rating Dağılımı</h3>
-            <canvas id="ratingsPieChart" style="width: 250px; height: 250px;"></canvas>
-            <script src="chart.js"></script> 
-            <script>
-            function renderRatingsPieChart(isDark) {
-                const ctx = document.getElementById('ratingsPieChart').getContext('2d');
-                const textColor = isDark ? '#ffffff' : '#000000';
+                <h3 style="margin-top:30px;">Günlük 10 Programın Rating Dağılımı</h3>
+                <canvas id="ratingsPieChart" style="width: 250px; height: 250px;"></canvas>
+                <script src="chart.js"></script> 
+                <script>
+                function renderRatingsPieChart(isDark) {
+                    const ctx = document.getElementById('ratingsPieChart').getContext('2d');
+                    const textColor = isDark ? '#ffffff' : '#000000';
 
-                return new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: ['UZAK SEHIR','UZAK SEHIR (OZET)','ESRA EROL'DA','MUGE ANLI ILE TATLI SERT','SURVIVOR','SELCUK TEPELI ILE NOW ANA HABER','KUDUS FATIHI SELAHADDIN EYYUBI','ATV ANA HABER','KANAL D ANA HABER','GELIN'],
-                        datasets: [{
-                            data: [16.89,8.27,4.63,4.23,4.09,3.42,3.12,3.1,2.44,2.4],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.7)',
-                                'rgba(54, 162, 235, 0.7)',
-                                'rgba(255, 206, 86, 0.7)',
-                                'rgba(75, 192, 192, 0.7)',
-                                'rgba(153, 102, 255, 0.7)',
-                                'rgba(255, 159, 64, 0.7)',
-                                'rgba(199, 199, 199, 0.7)',
-                                'rgba(83, 102, 255, 0.7)',
-                                'rgba(60, 179, 113, 0.7)',
-                                'rgba(255, 140, 0, 0.7)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)',
-                                'rgba(199, 199, 199, 1)',
-                                'rgba(83, 102, 255, 1)',
-                                'rgba(60, 179, 113, 1)',
-                                'rgba(255, 140, 0, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            title: {
-                                display: false
-                            },
-                            legend: {
-                                display: false  // 🔒 Etiket listesini (program isimleri) tamamen kapatır
+                    return new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ['UZAK SEHIR','UZAK SEHIR (OZET)','ESRA EROL'DA','MUGE ANLI ILE TATLI SERT','SURVIVOR','SELCUK TEPELI ILE NOW ANA HABER','KUDUS FATIHI SELAHADDIN EYYUBI','ATV ANA HABER','KANAL D ANA HABER','GELIN'],
+                            datasets: [{
+                                data: [16.89,8.27,4.63,4.23,4.09,3.42,3.12,3.1,2.44,2.4],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.7)',
+                                    'rgba(54, 162, 235, 0.7)',
+                                    'rgba(255, 206, 86, 0.7)',
+                                    'rgba(75, 192, 192, 0.7)',
+                                    'rgba(153, 102, 255, 0.7)',
+                                    'rgba(255, 159, 64, 0.7)',
+                                    'rgba(199, 199, 199, 0.7)',
+                                    'rgba(83, 102, 255, 0.7)',
+                                    'rgba(60, 179, 113, 0.7)',
+                                    'rgba(255, 140, 0, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(199, 199, 199, 1)',
+                                    'rgba(83, 102, 255, 1)',
+                                    'rgba(60, 179, 113, 1)',
+                                    'rgba(255, 140, 0, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                title: {
+                                    display: false
+                                },
+                                legend: {
+                                    display: false
+                                }
                             }
                         }
-                    }
+                    });
+                }
+
+                let pieChartInstance = null;
+
+                document.addEventListener("DOMContentLoaded", function() {
+                    pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
                 });
-            }
 
-            let pieChartInstance = null;
-
-            document.addEventListener("DOMContentLoaded", function() {
-                pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
-            });
-
-            const toggleButton = document.querySelector(".toggle-button");
-            if (toggleButton) {
-                toggleButton.addEventListener("click", function () {
-                    setTimeout(() => {
-                        if (pieChartInstance) {
-                            pieChartInstance.destroy();
-                        }
-                        pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
-                    }, 300);
-                });
-            }
-            </script>
-            
+                const toggleButton = document.querySelector(".toggle-button");
+                if (toggleButton) {
+                    toggleButton.addEventListener("click", function () {
+                        setTimeout(() => {
+                            if (pieChartInstance) {
+                                pieChartInstance.destroy();
+                            }
+                            pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
+                        }, 300);
+                    });
+                }
+                </script>
+                
             <div class="section-block">
             <h2 class="section-title">🔥 Twitter Gündem</h2>
             <div class="container">
             
                 <div class="card">
-                    <a href="https://x.com/search?q=%23HATCH" target="_blank">##HATCH</a>
+                    <a href="https://x.com/search?q=%23mattiaahmetminguzziiçinadalet12K" target="_blank">##mattiaahmetminguzziiçinadalet12K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23BJKASB" target="_blank">##BJKASB</a>
+                    <a href="https://x.com/search?q=%23KademeyiYokSayanKaybeder33K" target="_blank">##KademeyiYokSayanKaybeder33K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23Osman+Gökçek" target="_blank">#Osman Gökçek</a>
+                    <a href="https://x.com/search?q=%23Hıdırellez38K" target="_blank">#Hıdırellez38K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23DenizGezmiş15K" target="_blank">##DenizGezmiş15K</a>
+                    <a href="https://x.com/search?q=%23DenizGezmiş13K" target="_blank">##DenizGezmiş13K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%236Mayıs197212K" target="_blank">##6Mayıs197212K</a>
+                    <a href="https://x.com/search?q=%23rustem_elibol_idam_edin" target="_blank">##rustem_elibol_idam_edin</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23salı" target="_blank">##salı</a>
+                    <a href="https://x.com/search?q=%23İstifaEt_CansınHelvacı" target="_blank">##İstifaEt_CansınHelvacı</a>
                 </div>
                 
                 <div class="card">
@@ -755,7 +755,7 @@
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23Rihanna272K" target="_blank">#Rihanna272K</a>
+                    <a href="https://x.com/search?q=%23Muhalefet+Diyor+Ki19K" target="_blank">#Muhalefet Diyor Ki19K</a>
                 </div>
                 </div></div>
             <h2 class="section-title">🎬 Vizyondaki Filmler</h2>
