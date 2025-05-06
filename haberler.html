@@ -2,6 +2,17 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <script>
+        (function () {
+        const darkMode = localStorage.getItem("darkMode");
+        if (darkMode === "enabled") {
+            document.write('<body class="dark-mode">');
+        } else {
+            document.write('<body>');
+        }
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta 
       name="viewport" 
@@ -352,13 +363,6 @@
             background-color: #1e1e1e;
             color: #fff;
         }
-                       
-        /* ✅ BURAYA EKLE: */
-        html.pre-dark body {
-            background-color: #121212;
-            color: #fff;
-        }
-                       
         .dark-mode .card,
         .dark-mode .film-card,
         .dark-mode .weather-card {
@@ -416,12 +420,6 @@
 
 
     </style>
-    <!-- ✅ Dark mode erken sınıf ayarı (yanıp sönmeyi engeller) -->
-    <script>
-      if (localStorage.getItem("darkMode") === "enabled") {
-        document.documentElement.classList.add("pre-dark");
-      }
-    </script>
 </head>
 
     <div class="page-wrapper">
@@ -429,7 +427,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 06 May 2025, 13:08</p>
+      <p>Son Güncelleme: 06 May 2025, 13:10</p>
 
             <!-- Hava Durumu -->
             <h2 class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -642,80 +640,80 @@
                 </div>
             </div> <!-- reyting bloğu kapanışı -->
             
-                <h3 style="margin-top:30px;">Günlük 10 Programın Rating Dağılımı</h3>
-                <canvas id="ratingsPieChart" style="width: 250px; height: 250px;"></canvas>
-                <script src="chart.js"></script> 
-                <script>
-                function renderRatingsPieChart(isDark) {
-                    const ctx = document.getElementById('ratingsPieChart').getContext('2d');
-                    const textColor = isDark ? '#ffffff' : '#000000';
+            <h3 style="margin-top:30px;">Günlük 10 Programın Rating Dağılımı</h3>
+            <canvas id="ratingsPieChart" style="width: 250px; height: 250px;"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+            function renderRatingsPieChart(isDark) {
+                const ctx = document.getElementById('ratingsPieChart').getContext('2d');
+                const textColor = isDark ? '#ffffff' : '#000000';
 
-                    return new Chart(ctx, {
-                        type: 'pie',
-                        data: {
-                            labels: 'UZAK SEHIR','UZAK SEHIR (OZET)','ESRA EROL'DA','MUGE ANLI ILE TATLI SERT','SURVIVOR','SELCUK TEPELI ILE NOW ANA HABER','KUDUS FATIHI SELAHADDIN EYYUBI','ATV ANA HABER','KANAL D ANA HABER','GELIN',
-                            datasets: [{
-                                data: [16.89,8.27,4.63,4.23,4.09,3.42,3.12,3.1,2.44,2.4],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 0.7)',
-                                    'rgba(54, 162, 235, 0.7)',
-                                    'rgba(255, 206, 86, 0.7)',
-                                    'rgba(75, 192, 192, 0.7)',
-                                    'rgba(153, 102, 255, 0.7)',
-                                    'rgba(255, 159, 64, 0.7)',
-                                    'rgba(199, 199, 199, 0.7)',
-                                    'rgba(83, 102, 255, 0.7)',
-                                    'rgba(60, 179, 113, 0.7)',
-                                    'rgba(255, 140, 0, 0.7)'
-                                ],
-                                borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)',
-                                    'rgba(199, 199, 199, 1)',
-                                    'rgba(83, 102, 255, 1)',
-                                    'rgba(60, 179, 113, 1)',
-                                    'rgba(255, 140, 0, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: {
-                                title: {
-                                    display: false
-                                },
-                                legend: {
-                                    display: false
-                                }
+                return new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['UZAK SEHIR','UZAK SEHIR (OZET)','ESRA EROL'DA','MUGE ANLI ILE TATLI SERT','SURVIVOR','SELCUK TEPELI ILE NOW ANA HABER','KUDUS FATIHI SELAHADDIN EYYUBI','ATV ANA HABER','KANAL D ANA HABER','GELIN'],
+                        datasets: [{
+                            data: [16.89,8.27,4.63,4.23,4.09,3.42,3.12,3.1,2.44,2.4],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(255, 206, 86, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(255, 159, 64, 0.7)',
+                                'rgba(199, 199, 199, 0.7)',
+                                'rgba(83, 102, 255, 0.7)',
+                                'rgba(60, 179, 113, 0.7)',
+                                'rgba(255, 140, 0, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(199, 199, 199, 1)',
+                                'rgba(83, 102, 255, 1)',
+                                'rgba(60, 179, 113, 1)',
+                                'rgba(255, 140, 0, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: false
+                            },
+                            legend: {
+                                display: false  // 🔒 Etiket listesini (program isimleri) tamamen kapatır
                             }
                         }
-                    });
-                }
-
-                let pieChartInstance = null;
-
-                document.addEventListener("DOMContentLoaded", function() {
-                    pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
+                    }
                 });
+            }
 
-                const toggleButton = document.querySelector(".toggle-button");
-                if (toggleButton) {
-                    toggleButton.addEventListener("click", function () {
-                        setTimeout(() => {
-                            if (pieChartInstance) {
-                                pieChartInstance.destroy();
-                            }
-                            pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
-                        }, 300);
-                    });
-                }
-                </script>
-                
+            let pieChartInstance = null;
+
+            document.addEventListener("DOMContentLoaded", function() {
+                pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
+            });
+
+            const toggleButton = document.querySelector(".toggle-button");
+            if (toggleButton) {
+                toggleButton.addEventListener("click", function () {
+                    setTimeout(() => {
+                        if (pieChartInstance) {
+                            pieChartInstance.destroy();
+                        }
+                        pieChartInstance = renderRatingsPieChart(document.body.classList.contains("dark-mode"));
+                    }, 300);
+                });
+            }
+            </script>
+            
             <div class="section-block">
             <h2 class="section-title">🔥 Twitter Gündem</h2>
             <div class="container">
@@ -1016,6 +1014,16 @@
                         </div>
                     </div></div><div class="category-section"><h2>Yabancı Kaynak</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/06/world/europe/germany-new-government.html" target="_blank">What to Know About the Formation of Germany’s New Government</a>
+                            <p>06 May 2025, 10:06</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/06/world/europe/friedrich-merz-germany.html" target="_blank">Friedrich Merz, Germany’s New Leader, Leaps Into a World of Crises</a>
+                            <p>06 May 2025, 10:06</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.theguardian.com/business/live/2025/may/06/trade-war-china-service-sector-uk-eurozone-ford-tariffs-bp-shell-oil-business-live-news" target="_blank">UK business activity falls for the first time since October 2023 as trade tensions hurt economy, and car sales slide – business live</a>
                             <p>06 May 2025, 10:04</p>
                         </div>
@@ -1053,16 +1061,6 @@
                         <div class="card">
                             <a href="https://www.nytimes.com/2025/05/04/world/europe/pope-candidate-cardinal-grech.html" target="_blank">Francis Opened Discussions to Those Outside the Church Hierarchy. This Cardinal Would, Too</a>
                             <p>06 May 2025, 09:49</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/business/2025/may/06/uk-services-sector-trump-tariff-rachel-reeves-tax-rises" target="_blank">UK services sector shrinks for first time in 17 months amid Trump tariff fears</a>
-                            <p>06 May 2025, 09:45</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/sport/2025/may/06/police-investigate-two-motorcyclists-deaths-british-superbikes-crash-oulton-park" target="_blank">Police investigate two motorcyclists’ deaths in British Superbikes crash</a>
-                            <p>06 May 2025, 09:42</p>
                         </div>
                     </div></div><div class="category-section"><h2>Dünya</h2><div class="container">
                         <div class="card">
@@ -1111,8 +1109,8 @@
                         </div>
                     
                         <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250506/yeni-papanin-secilecegi-konklav-sirasinda-vatikanin-cep-telefonu-sinyalleri-kesilecek-1095962949.html" target="_blank">Yeni papanın seçileceği konklav sırasında Vatikan'ın cep telefonu sinyalleri kesilecek</a>
-                            <p>06 May 2025, 13:02</p>
+                            <a href="https://anlatilaninotesi.com.tr/20250506/ozgur-ozel-pazar-gunu-sokaklardan-cekilin-meydanlardan-cekilin-mesajini-aldik-ama-hayir-diyoruz-1095962363.html" target="_blank">Özgür Özel: Pazar günü 'Sokaklardan çekilin', 'Meydanlardan çekilin' mesajını aldık ama hayır diyoruz</a>
+                            <p>06 May 2025, 13:07</p>
                         </div>
                     </div></div><div class="category-section"><h2>Ekonomi</h2><div class="container">
                         <div class="card">
