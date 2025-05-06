@@ -2,17 +2,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <script>
-        (function () {
-        const darkMode = localStorage.getItem("darkMode");
-        if (darkMode === "enabled") {
-            document.write('<body class="dark-mode">');
-        } else {
-            document.write('<body>');
-        }
-        })();
-    </script>
-
     <meta charset="UTF-8">
     <meta 
       name="viewport" 
@@ -363,6 +352,13 @@
             background-color: #1e1e1e;
             color: #fff;
         }
+                       
+        /* ✅ BURAYA EKLE: */
+        html.pre-dark body {
+            background-color: #121212;
+            color: #fff;
+        }
+                       
         .dark-mode .card,
         .dark-mode .film-card,
         .dark-mode .weather-card {
@@ -420,6 +416,12 @@
 
 
     </style>
+    <!-- ✅ Dark mode erken sınıf ayarı (yanıp sönmeyi engeller) -->
+    <script>
+      if (localStorage.getItem("darkMode") === "enabled") {
+        document.documentElement.classList.add("pre-dark");
+      }
+    </script>
 </head>
 
     <div class="page-wrapper">
@@ -427,7 +429,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 06 May 2025, 12:50</p>
+      <p>Son Güncelleme: 06 May 2025, 12:57</p>
 
             <!-- Hava Durumu -->
             <h2 class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -1014,53 +1016,53 @@
                         </div>
                     </div></div><div class="category-section"><h2>Yabancı Kaynak</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/06/world/asia/india-pakistan-kashmir-drills.html" target="_blank">India Orders Civil Defense Drills as Potential Clash With Pakistan Looms</a>
+                            <p>06 May 2025, 09:55</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/04/world/europe/pope-candidate-cardinal-grech.html" target="_blank">Francis Opened Discussions to Those Outside the Church Hierarchy. This Cardinal Would, Too</a>
+                            <p>06 May 2025, 09:49</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/business/2025/may/06/uk-services-sector-trump-tariff-rachel-reeves-tax-rises" target="_blank">UK services sector shrinks for first time in 17 months amid Trump tariff fears</a>
+                            <p>06 May 2025, 09:45</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/us-news/live/2025/may/06/donald-trump-mark-carney-us-canada-tariffs-film-harvard-news-live-updates" target="_blank">Trump to host Canada’s Carney amid tariff trade war – US politics live</a>
+                            <p>06 May 2025, 09:45</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/sport/2025/may/06/police-investigate-two-motorcyclists-deaths-british-superbikes-crash-oulton-park" target="_blank">Police investigate two motorcyclists’ deaths in British Superbikes crash</a>
+                            <p>06 May 2025, 09:42</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/business/live/2025/may/06/trade-war-china-service-sector-uk-eurozone-ford-tariffs-bp-shell-oil-business-live-news" target="_blank">UK business activity falls for the first time since October 2023 as trade tensions hurt economy, and car sales slide – business live</a>
+                            <p>06 May 2025, 09:41</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.nytimes.com/live/2025/05/06/world/merz-germany-chancellor-parliament/merz-germany-chancellor-parliament-vote" target="_blank">Merz Fails in First Parliament Vote to Become Germany’s Next Chancellor</a>
                             <p>06 May 2025, 09:39</p>
                         </div>
                     
                         <div class="card">
+                            <a href="https://www.theguardian.com/world/live/2025/may/06/friedrich-merz-german-chancellor-europe-live-latest-news" target="_blank">Germany’s far-right AfD calls for fresh elections after Merz fails to be elected chancellor in first vote – Europe live</a>
+                            <p>06 May 2025, 09:39</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/politics/live/2025/may/06/winter-fuel-payments-labour-keir-starmer-wes-streeting-kemi-badenoch-latest-live-news" target="_blank">Starmer urged to do full U-turn over benefit cuts as inquest over Labour elections defeat continues – UK politics live</a>
+                            <p>06 May 2025, 09:36</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.nytimes.com/2025/05/06/world/europe/friedrich-merz-germany.html" target="_blank">Friedrich Merz, Germany’s New Leader, Leaps Into a World of Crises</a>
                             <p>06 May 2025, 09:34</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/world/live/2025/may/06/friedrich-merz-german-chancellor-europe-live-latest-news" target="_blank">Germany’s far-right AfD calls for fresh elections after Merz fails to be elected chancellor in first vote – Europe live</a>
-                            <p>06 May 2025, 09:34</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/politics/live/2025/may/06/winter-fuel-payments-labour-keir-starmer-wes-streeting-kemi-badenoch-latest-live-news" target="_blank">Streeting declines to rule out winter fuel payments rethink after Labour losses in local elections – UK politics live</a>
-                            <p>06 May 2025, 09:28</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.bbc.com/news/articles/c0l033ezg1po" target="_blank">Peru imposes curfew in province where 13 mine workers were killed </a>
-                            <p>06 May 2025, 09:27</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.bbc.com/news/articles/cvgp22zlrgko" target="_blank">Germany's Merz falls short of majority in vote for chancellor</a>
-                            <p>06 May 2025, 09:26</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/business/live/2025/may/06/trade-war-china-service-sector-uk-eurozone-ford-tariffs-bp-shell-oil-business-live-news" target="_blank">UK business activity falls for the first time since October 2023 as trade tensions hurt economy, and car sales slide – business live</a>
-                            <p>06 May 2025, 09:26</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/world/live/2025/may/06/israel-gaza-war-latest-live-news-benjamin-netanyahu-hamas-palestine" target="_blank">Hamas no longer interested in truce talks after Israel’s new Gaza plan, senior official says – Israel-Gaza war live</a>
-                            <p>06 May 2025, 09:24</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/world/2025/may/06/ukraine-drones-raid-moscow" target="_blank">Moscow airports close as Ukrainian drones target city for second night</a>
-                            <p>06 May 2025, 09:21</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/business/2025/may/06/hovis-kingsmill-talks-bread-merger" target="_blank">Hovis and Kingsmill owners in talks about bread merger</a>
-                            <p>06 May 2025, 09:15</p>
                         </div>
                     </div></div><div class="category-section"><h2>Dünya</h2><div class="container">
                         <div class="card">
@@ -1114,6 +1116,11 @@
                         </div>
                     </div></div><div class="category-section"><h2>Ekonomi</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.cnnturk.com/ekonomi/ankaradaki-hazir-beton-firmalarinin-savunmalari-alindi-2280583" target="_blank">Ankara'daki hazır beton firmalarının savunmaları alındı</a>
+                            <p>06 May 2025, 12:52</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/ekonomi/altin/canli-altin-fi-yatlari-6-mayis-bugun-ceyrek-altin-ne-kadar-gram-altin-fiyati-ne-gram-ceyrek-yarim-cumhuriyet-altini-ne-2257861" target="_blank">CANLI ALTIN FİYATLARI: 6 Mayıs Bugün Çeyrek Altın Ne Kadar? Gram Altın Fiyatı Ne? Gram, Çeyrek, Yarım, Cumhuriyet Altını Ne Kadar? 6 Mayıs Canlı Altın Fiyatları</a>
                             <p>06 May 2025, 12:29</p>
                         </div>
@@ -1155,11 +1162,6 @@
                     
                         <div class="card">
                             <a href="https://www.cnnturk.com/ekonomi/togg-kampanyasi-2025-togg-kredi-kampanyasi-nedir-ilk-arabam-yerli-otomobil-aile-destek-programindan-kimler-faydalanabilir-2272875" target="_blank">TOGG KAMPANYASI 2025: TOGG Kredi Kampanyası Nedir? İlk Arabam Yerli Otomobil Aile Destek Programı'ndan Kimler Faydalanabilir?</a>
-                            <p>06 May 2025, 09:18</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/ekonomi/emlak-vergisi-odeme-ekrani-emlak-vergisi-odeme-tarihleri-ne-nasil-odenir-2025-e-belediye-emlak-vergisi-odeme-ekrani-2280064" target="_blank">EMLAK VERGİSİ ÖDEME EKRANI! Emlak Vergisi Ödeme Tarihleri Ne, Nasıl Ödenir? 2025 e-Belediye Emlak Vergisi Ödeme Ekranı</a>
                             <p>06 May 2025, 09:18</p>
                         </div>
                     </div></div><div class="category-section"><h2>Magazin</h2><div class="container">
@@ -1214,6 +1216,11 @@
                         </div>
                     </div></div><div class="category-section"><h2>Spor</h2><div class="container">
                         <div class="card">
+                            <a href="https://www.cnnturk.com/spor/futbol/inter-barcelona-hangi-kanalda-uefa-sampiyonlar-ligi-inter-barcelona-maci-ne-zaman-saat-kacta-ucl-ilk-finalist-belli-oluyor-2280538" target="_blank">Inter Barcelona Hangi Kanalda? UEFA Şampiyonlar Ligi Inter Barcelona Maçı Ne Zaman, Saat Kaçta? UCL İlk Finalist Belli Oluyor!</a>
+                            <p>06 May 2025, 12:53</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/spor/futbol/son-dakika-galatasaray-kaan-ayhanla-yeni-sozlesme-imzaladi-2280580" target="_blank">SON DAKİKA | Galatasaray, Kaan Ayhan'la yeni sözleşme imzaladı</a>
                             <p>06 May 2025, 12:42</p>
                         </div>
@@ -1256,11 +1263,6 @@
                         <div class="card">
                             <a href="https://www.sabah.com.tr/spor/futbol/2025/05/06/galatasarayin-gabriel-brazao-icin-yapacagi-teklif-ortaya-cikti" target="_blank">Galatasaray’ın Gabriel Brazao için yapacağı teklif ortaya çıktı!</a>
                             <p>06 May 2025, 12:19</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.sabah.com.tr/spor/futbol/2025/05/06/galatasaray-fenerbahce-ve-besiktasa-fark-atti" target="_blank">Galatasaray, Fenerbahçe ve Beşiktaş'a fark attı!</a>
-                            <p>06 May 2025, 12:14</p>
                         </div>
                     </div></div><div class="category-section"><h2>Sanat</h2><div class="container">
                         <div class="card">
