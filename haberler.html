@@ -192,8 +192,8 @@
 
       /* ── Gece Modu ── */
       .dark-mode body {
-        background-color: #1e1e1e;
-        color: #fff;
+        background-color: #121212;
+        color: #e0e0e0;
       }
       .dark-mode .card,
       .dark-mode .film-card,
@@ -222,7 +222,7 @@
         cursor: pointer;
         font-size: 16px;
         z-index: 9999;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: background-color 0.5s ease, color 0.5s ease;
       }
       .toggle-button:hover {
         background: #0056b3;
@@ -361,8 +361,9 @@
         
          /* ── Gece Modu ── */
         .dark-mode {
-            background-color: #1e1e1e;
-            color: #fff;
+            background-color: #121212;
+            color: #e0e0e0;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
         .dark-mode .card,
         .dark-mode .film-card,
@@ -428,7 +429,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 07 May 2025, 22:50</p>
+      <p>Son Güncelleme: 07 May 2025, 22:52</p>
 
             <!-- Hava Durumu -->
             <h2 class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -445,7 +446,7 @@
                         <p><strong>03:00</strong></p>
                         <img src="data:image/png;base64,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" alt="Hava Durumu">
                         <p>Az bulutlu</p>
-                        <p><strong>17.33°C</strong></p>
+                        <p><strong>17.31°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
@@ -567,6 +568,76 @@
                             <th>Rating %</th>
                         </tr>
             
+                        <tr>
+                            <td>1</td>
+                            <td>INTER-BARCELONA UEFA SAMPIYONLAR LIGI KARSILASMASI</td>
+                            <td>TRT 1</td>
+                            <td>6.09</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>2</td>
+                            <td>KRAL KAYBEDERSE</td>
+                            <td>STAR TV</td>
+                            <td>4.80</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>3</td>
+                            <td>ESRA EROL'DA</td>
+                            <td>ATV</td>
+                            <td>4.45</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>4</td>
+                            <td>BAHAR</td>
+                            <td>SHOW TV</td>
+                            <td>4.42</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>5</td>
+                            <td>BIR GECE MASALI</td>
+                            <td>ATV</td>
+                            <td>4.02</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>6</td>
+                            <td>SURVIVOR</td>
+                            <td>TV8</td>
+                            <td>3.91</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>7</td>
+                            <td>MUGE ANLI ILE TATLI SERT</td>
+                            <td>ATV</td>
+                            <td>3.90</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>8</td>
+                            <td>SELCUK TEPELI ILE NOW ANA HABER</td>
+                            <td>NOW</td>
+                            <td>3.19</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>9</td>
+                            <td>ATV ANA HABER</td>
+                            <td>ATV</td>
+                            <td>3.04</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>10</td>
+                            <td>GELIN</td>
+                            <td>KANAL 7</td>
+                            <td>2.55</td>
+                        </tr>
+                    
                     </table>
                 </div>
             </div> <!-- reyting bloğu kapanışı -->
@@ -851,7 +922,7 @@
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.cumhuriyet.com.tr/siyaset/vatikandaki-yeni-papa-secilemedi-sistina-sapelinden-siyah-duman-2336312" target="_blank">Vatikan’daki yeni papa seçilemedi: Sistina Şapeli’nden siyah duman yükseldi</a>
+                            <a href="https://www.cumhuriyet.com.tr/siyaset/vatikandaki-yeni-papa-secilemedi-sistina-sapelinden-siyah-duman-2336312" target="_blank">Vatikan’da yeni papa seçilemedi: Sistina Şapeli’nden siyah duman yükseldi</a>
                             <p>07 May 2025, 22:48</p>
                         </div>
                     
@@ -966,7 +1037,7 @@
                         </div>
                     
                         <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250507/hindistan-ve-pakistan-hakkinda-trump-umarim-artik-durabilirler-1096041560.html" target="_blank">Hindistan ve Pakistan hakkında Trump: 'Umarım artık durabilirler'</a>
+                            <a href="https://anlatilaninotesi.com.tr/20250507/hindistan-ve-pakistan-hakkinda-trump-umarim-artik-durabilirler-1096041560.html" target="_blank">Trump, Pakistan-Hindistan çatışması hakkında konuştu: 'Umarım artık durabilirler'</a>
                             <p>07 May 2025, 22:38</p>
                         </div>
                     </div></div><div class="category-section"><h2>Ekonomi</h2><div class="container">
