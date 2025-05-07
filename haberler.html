@@ -27,6 +27,18 @@
 
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+                       
+    :root {
+        --bg-color: #f4f6f8;
+        --card-color: #ffffff;
+        --text-color: #333;
+        --primary-color: #0056b3;
+        --primary-hover: #003c82;
+        --accent-color: #4dabf7;
+        --dark-bg: #1a1a1a;
+        --dark-card: #2c2c2c;
+        --dark-text: #eee;
+        }
 
       /* ── Genel Reset & Page Wrapper ── */
       html, body {
@@ -34,8 +46,8 @@
         padding: 0;
         overflow-x: hidden;
         font-family: 'Poppins', sans-serif;
-        background-color: #f4f4f9;
-        color: #333;
+        background-color: var(--bg-color);
+        color: var(--text-color);
         text-align: center;
         width: 100%;
         transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
@@ -83,6 +95,21 @@
         margin-bottom: 5px;
         transition: color 0.3s ease;
       }
+                       
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            }
+            a:hover {
+            color: var(--primary-hover);
+            }
+            .dark-mode a {
+            color: var(--accent-color);
+            }
+            .dark-mode a:hover {
+            color: #fff;
+            }
       .card a:hover {
         color: #007bff;
       }
@@ -215,7 +242,7 @@
         position: fixed;
         top: 80px;
         right: 10px;
-        background: #007bff;
+        background: var(--primary-color);
         color: #fff;
         padding: 10px 15px;
         border: none;
@@ -256,11 +283,11 @@
             color: #ffcc00;
             }
       .toggle-button:hover {
-        background: #0056b3;
+        background: var(--primary-hover);
       }
       .dark-mode .toggle-button {
-        background: #ffcc00;
-        color: #333;
+        background: var(--accent-color);
+        color: #1a1a1a;
       }
 
       /* ── Responsive ── */
@@ -354,13 +381,14 @@
 
         /* Gece modu için ayrı stil */
         .dark-mode .section-title {
-            color: white;
+            color: var(--accent-color);
         }
                        
         /* ── Gece Modu Metin Renkleri ── */
         .dark-mode {
         /* Genel metin rengi */
-        color: #EEE !important;
+        background-color: var(--dark-bg);
+        color: var(--dark-text);
         }
 
         /* Paragraflar ve bağlantılar */
@@ -400,8 +428,8 @@
         .dark-mode .card,
         .dark-mode .film-card,
         .dark-mode .weather-card {
-            background: #2c2c2c;
-            color: #fff;
+            background: var(--dark-card);
+            color: var(--dark-text);
         }
 
         /* ── Haber kartı linkleri ── */
@@ -449,6 +477,8 @@
     .card, .film-card, .weather-card {
         max-width: 320px;
         width: 100%;
+        background: var(--card-color);
+        color: var(--text-color);
     }
 }
 
@@ -469,7 +499,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 07 May 2025, 23:50</p>
+      <p>Son Güncelleme: 07 May 2025, 23:58</p>
 
             <!-- Hava Durumu -->
             <h2 id="hava" class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -966,6 +996,16 @@
                         </div>
                     
                         <div class="card">
+                            <a href="https://www.cumhuriyet.com.tr/spor/devler-liginde-finalin-adi-belli-oldu-psg-arsenal-karsisinda-munih-2336332" target="_blank">Devler Ligi'nde finalin adı belli oldu! PSG, Arsenal karşısında Münih biletini kaptı!</a>
+                            <p>07 May 2025, 23:57</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cumhuriyet.com.tr/siyaset/chp-mitingine-karartma-basarir-ambleminde-ampul-olan-bir-parti-on-2336331" target="_blank">CHP mitingine karartma! Başarır: ‘Ambleminde ampul olan bir parti on binleri karanlıkta bıraktı’</a>
+                            <p>07 May 2025, 23:52</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cumhuriyet.com.tr/turkiye/minguzzi-cinayeti-sorusturmasinda-2-supheli-tutuklandi-2336329" target="_blank">Minguzzi cinayeti soruşturmasında 2 şüpheli tutuklandı</a>
                             <p>07 May 2025, 23:47</p>
                         </div>
@@ -974,16 +1014,6 @@
                             <a href="https://www.cumhuriyet.com.tr/spor/cristiano-ronaldonun-oglu-portekiz-15-yas-alti-milli-takimina-2336330" target="_blank">Cristiano Ronaldo'nun oğlu, Portekiz 15 Yaş Altı Milli Takımı'na çağrıldı</a>
                             <p>07 May 2025, 23:46</p>
                         </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/son-dakika-cumhurbaskani-erdogan-pakistan-basbakani-serif-ile-gorustu-turkiye-elinden-geleni-yapmaya-hazir-2281256" target="_blank">SON DAKİKA | Cumhurbaşkanı Erdoğan Pakistan Başbakanı Şerif ile görüştü: Türkiye elinden geleni yapmaya hazır!</a>
-                            <p>07 May 2025, 20:28</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/tbmm-dijital-mecralar-komisyonu-yurt-disindan-gelecek-google-yetkililerini-dinleyecek-2281264" target="_blank">TBMM Dijital Mecralar Komisyonu, yurt dışından gelecek Google yetkililerini dinleyecek</a>
-                            <p>07 May 2025, 20:28</p>
-                        </div>
                     </div></div>
                 <div class="category-section">
                 <h2 class="section-title" id="">Yabancı Kaynak</h2>
@@ -991,12 +1021,32 @@
                 
                         <div class="card">
                             <a href="https://www.nytimes.com/live/2025/05/07/world/pope-conclave-updates" target="_blank">Live Updates: No Pope Elected on Cardinals’ First Vote</a>
-                            <p>07 May 2025, 20:34</p>
+                            <p>07 May 2025, 20:52</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.nytimes.com/live/2025/05/07/world/pope-conclave-updates/when-will-the-cardinals-vote-next" target="_blank">At What Times Will the Cardinals Vote Next for a New Pope?</a>
+                            <p>07 May 2025, 20:52</p>
                         </div>
                     
                         <div class="card">
                             <a href="https://www.theguardian.com/australia-news/live/2025/may/08/australia-news-live-anthony-albanese-environment-labor-cabinet-liberal-leadership-sussan-ley-angus-taylor-ntwnfb" target="_blank">Australia news live: Anthony Albanese pledges to deliver environment protection agency; famed scientist Rinaldo Bellomo dies</a>
-                            <p>07 May 2025, 20:33</p>
+                            <p>07 May 2025, 20:48</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/us-news/live/2025/may/07/donald-trump-joe-biden-us-president-latest-politics-live-news" target="_blank">Federal Reserve keeps interest rates on hold amid Trump’s erratic trade strategy – live</a>
+                            <p>07 May 2025, 20:41</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.bbc.com/news/videos/c4g3gwg3dqlo" target="_blank">Watch: The first day of the conclave in a minute</a>
+                            <p>07 May 2025, 20:37</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/us-news/2025/may/07/trump-tariffs-movies-jon-voight" target="_blank">Jon Voight defends Trump’s film tariff plan: ‘Something has to be done’</a>
+                            <p>07 May 2025, 20:30</p>
                         </div>
                     
                         <div class="card">
@@ -1017,26 +1067,6 @@
                         <div class="card">
                             <a href="https://www.nytimes.com/2025/05/07/us/politics/pakistan-defense-minister-india.html" target="_blank">Pakistan’s Defense Minister Welcomes U.S. Help to Ease Tensions With India</a>
                             <p>07 May 2025, 20:22</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.bbc.com/news/articles/c0eley5gy8wo" target="_blank">Denmark summons US ambassador over Greenland spying report</a>
-                            <p>07 May 2025, 20:10</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/07/world/europe/papal-conclave-st-peters-square-smoke.html" target="_blank">Waiting for the Smoke That Heralds a New Pope</a>
-                            <p>07 May 2025, 20:07</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/07/world/europe/syria-france-al-shara-macron.html" target="_blank">Syrian Leader Says Country Has Held Indirect Talks With Israel</a>
-                            <p>07 May 2025, 20:05</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/us-news/2025/may/07/house-committee-campus-antisemitism" target="_blank">House panel on campus antisemitism likened to cold-war ‘un-American’ committee</a>
-                            <p>07 May 2025, 20:02</p>
                         </div>
                     </div></div>
                 <div class="category-section">
