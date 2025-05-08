@@ -159,6 +159,14 @@
       .weather-card.default-weather {
         background: linear-gradient(135deg,#6c757d,#343a40);
       }
+    
+        .scrollable-spotify-list {
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+        }
 
       /* ── Döviz Kurları ── */
       .exchange-container {
@@ -499,31 +507,24 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 08 May 2025, 01:50</p>
+      <p>Son Güncelleme: 08 May 2025, 03:19</p>
 
             <!-- Hava Durumu -->
             <h2 id="hava" class="section-title">İstanbul Saatlik Hava Durumu</h2>
             <div class="weather-container">
 
                     <div class="weather-card default-weather">
-                        <p><strong>03:00</strong></p>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADeElEQVR4nO3cWYiOURzH8a8tichYQ1HihkKWbBe2GNxQlEQiypVSRLlQ3LmTC2UpceFKSZZBQvY1O7mwl0RZQkLRyaEhxjve5/z/58nvU2+jTM/vzPzmfbZznhcRERERERERERERERERERERERERETNNrIJqa6cUtakaYDQwGOgPdAPax/9rCrwGngPXgavAKeBhEcF1dfuL2EyDmidPKEZfYAIwLnQLtK5gq5Pr/fsYsBc4CZzL+QfNvZBewBpgbpXbGRNfwVFgFXCmgPEVrmmOgwI6ATuAewWU8auxwGngCDC04G1XLcdCZgG3gDmJj3Fh93ceWJ4wo9FyK2QTsBPoaJi5DjiRy+47p0LqgEVO2aPju7KnU/4PORTSPB5oJzmPo0/chbmWkkMhB+udAXnrDJz13H15F7I5Hlxz0hW4ALTwGJNnIdOBhY75DRkIrPUI9iqkLbDNKbtSKzx2pV6FbIml5M78j8ajkA7ATIfcfxHOuKZaBnoUstEhsxpbgWZWYdaF9CzRu+O7LsBEqzDrQiZX8D05Kmwy52+sC6k1zivKbKuLRctC2lgfIAtUE2/bJ2dZyJgSzVD+jsm727KQ4YZZKQyyCLEspJ9hVgqdLEIsC+lumJVCJQsrqmZZSDvDrBRaWoRYFvLFMKu0LAvJdYVLVix/Se9K8PtoyGeLEMtCnhpmpfDWIsSykDuGWSm8sgixLOSiYVYKtyxCLAs5YpiVwmGLEMtCnsXV52X0MS7kS876VHRPSQvZBbyxCLIuxORtn8A+qyDrQq7E5Zpl8glI/+hU5HH1vMAhsxrhcYWXVmEehdws0Snwe2C9ZaDX/aX5TrmNtcQ60KuQG8BKp+xK7Y5rskx53oFdF5/1y1F4tHqxx7g8CwnzI6OAx45j+JMR8ULWXA5zFCOBFxmM47vwJNdtr/AcCnkCDAMeZDCWsG7skOcAcpnFux9XpVx2yg/XGQMsLwD/JKdp1XDOPzx+coOl7fGJqWu+P/43uc1zh9sUq+MqwUuJsx7H64x5wKPEWRXLdeFBeDJ3CDADuFvwtsNd22VAb2BDwduuWu5rbXfF1zRgfPza4x+28zZe6IUD9oHMzup+UpbFz7vja2m9j2kaFJd3hlX1reL3hc9G+RCPRy/itOvxOFuZbQkiIiIiIiIiIiIiIiIiIiIiIiIi/wfgKw42dDZq2n0SAAAAAElFTkSuQmCC" alt="Hava Durumu">
-                        <p>Açık</p>
-                        <p><strong>15.68°C</strong></p>
-                    </div>
-                    
-                    <div class="weather-card default-weather">
                         <p><strong>06:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADe0lEQVR4nO3cWahNURzH8a8picg1hqLEC4UMGe6DKfMDhaQkojwpRZQHxZs3PChSui+elGSWkHnMTB5MV0mUISQUrSy6xO24Z6//f+38PnW6t+5t/9Y5v3P2uPZBRERERERERERERERERERERERERMRMM6ugl8tnFLWoGqAWGAoMBHoAHePfmgNvgBfATeA6cAZ4XERw5837ilhMo1omTyhGf2AiMB6YArStYKlTG/x+Agiv5mngQs5PNPdC+gDrgQVVLmdsfATHgbXAuQLGV7jmOQ4K6ALUAQ8KKON344CzwDFgeMHLrlqOhcwD7sQiUm7jwurvIrAqYcY/y62QbcCusP00zNwInMpl9Z1TIYeApU7ZtfFT2dsp/6ccCmkZN7STncfRL67CXEvJoZDDDfaAvHUFznuuvrwL2R43rjnpDlwCWnmMybOQWcASx/zGDAY2eAR7FdIe2OmUXanVHqtSr0K2x1JyZ/6m8SikEzDXIbcpwh7XdMtAj0K2OmRWYwfQwirMupDwjptjnFmtbsAkqzDrQqZW8D85mmY1JutCphjnFWW+1cGiZSHtrDeQBaqJp+2TsyxkbImuUP6JyafbspCRhlkpDLEIsSxkgGFWCl0sQiwL6WmYlUIlEyuqZllIB8OsFFpbhFgW8tUwq7QsC8l1hktWLF+k9yV4PRrzxSLEspBnhlkpvLMIsSzknmFWCq8tQiwLuWyYlcIdixDLQo4ZZqVw1CLEspDncfZ5GX2KE/mSs94V3VvSQnYDby2CrAsx+dgnsN8qyLqQa3G6Zpl8Bg5Yjdfj6HmxQ2Y1wu0Kr6zCPAq5XaJd4A/AJstAr/NLi5xy/9Vy60CvQm4Ba5yyK7Unzsky5XkGdmO81y9H4dbqZR7j8iwkXB8ZA9Q7juFvRsUDWXM5XKMYHb5XIINx/BDu5LrrFZ5DIU+BEcCjDMYS5o0d8RxALlfxHsZZKVed8sNxxiDLA8C/yemyatjnHxm/ucFSXbxj6obv0/8ut+vc4TTFujhL8ErirPp4nLEQeJI4q2K5TjwId+YOA2YD9wtedjhruxLoC2wpeNlVy32u7e74mAlMiD97NWE57+KBXthgH8xsr+4XZZn8vCc+VjT4mqYhcXpnmFXfJv5f+G6Uj3F79DJedj0Zr1ZmW4KIiIiIiIiIiIiIiIiIiIiIiIjI/wH4BqdEdDZEJK4oAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Açık</p>
-                        <p><strong>15.96°C</strong></p>
+                        <p><strong>15.14°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>09:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADDElEQVR4nO3bT4hNYRjH8e8YIqPLICSR/NtoShQKK5qJbOxIig3Z+FuUWCglTFiIBSn/diwoGxY0SGOnxAIloUgyG8bI6K136qo73TO35znnPeP3qdnMnfu8zzm/O+e85z3nIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIqXW5NF8T89365ITgE3AamAu0AL0AR+BZ8B14Ln1oFlUKuNN66UeyFLgELAWaK7zty+A08Alq8Gz+J8COQAcb+B9T4H20IZFE/VYBzLCo0kDtxsMI1gGhE/E4qS2KKMUA7kJrDeocw+Yb1AnV6kFshPYYFSrFbhhVCs3KQXSBpwzrhkOW3uNa7pKKZAwrfVwBJhc7KZll0ogYUq70al2mAZ1ONU2l0og64CZjvWX1Phdc4qTmlQaWu5cf2AKvAi4AnTHq/z3wEPgAjDHuYdMRqbQBDDbuX4FOAwcrfHadGAVsB3YHJdhCpNKIOOc67fFn3quxQnAWed+BpXKIetrAj0MOAOsLGrwIgOZVHXc/lZgH7VsK2rgvBcXw7L5LmALMC9+IPqBX8Boj14a9BOYBXyu9/ayLi6OBU7GQ9MxYEHV2E2JhRGMGWSq7C6Pk3q4uXS/hKuvLUUM6h1ICOMVMNV5HA/vihjUM5BwJdxV0jA+xFvE4d5KL/AynlfceQayB1iYx0Y4mAg8iecS4t3HW8BF4LHnwF6zrFHAW2CGR/2CXa6eFpdllrV1mIZB3LYur33nFUi7U91UrABOePTiFUghc/ic7YsnfVNegbSmuAcd7LcumepjQGWRZQV5SLwC+VKq3dq4KdYFvQLpdqqbGvP95xXIXae6qemz7scrkKvAG6faKflk3YvnSb3TsXYqHln34RnIeeCBY/2i/QZOWffgPe3tKGoZOwcHgdfWw3gH0hvvDg63/5ROr0NyHheGIZQ18bko8++65ewHsNvjCn1A3g85hJtWO+KD1dOq7jf0e/RhIHxg/8SnYu7ELxH9880s6+V3ERERERERERERERERERERERERERERERGRoQD+AsqjaPphCrlmAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Parçalı az bulutlu</p>
-                        <p><strong>19.55°C</strong></p>
+                        <p><strong>19.18°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
@@ -588,6 +589,13 @@
                         <p>Az bulutlu</p>
                         <p><strong>21.02°C</strong></p>
                     </div>
+                    
+                    <div class="weather-card default-weather">
+                        <p><strong>15:00</strong></p>
+                        <img src="data:image/png;base64,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" alt="Hava Durumu">
+                        <p>Az bulutlu</p>
+                        <p><strong>20.89°C</strong></p>
+                    </div>
                     </div>
             <h2 id="trafik" class="section-title">🚦 İstanbul Trafik Durumu</h2>
             <div style="width: 100%; max-width: 100%; margin: 0 auto;">
@@ -617,11 +625,11 @@
                         </div>
                     
                         <div class="exchange-card">
-                            <p><strong>EUR:</strong> 43.83 TL</p>
+                            <p><strong>EUR:</strong> 43.78 TL</p>
                         </div>
                     
                         <div class="exchange-card">
-                            <p><strong>GBP:</strong> 51.62 TL</p>
+                            <p><strong>GBP:</strong> 51.48 TL</p>
                         </div>
                     
                 </div>
@@ -717,15 +725,19 @@
             <div class="container">
             
                 <div class="card">
-                    <a href="https://x.com/search?q=%23ChampionsLeague42K" target="_blank">##ChampionsLeague42K</a>
+                    <a href="https://x.com/search?q=%23SurvivorAllStar2025" target="_blank">##SurvivorAllStar2025</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23BeyazıtMeydanı25K" target="_blank">##BeyazıtMeydanı25K</a>
+                    <a href="https://x.com/search?q=%23ChampionsLeague39K" target="_blank">##ChampionsLeague39K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23AhmetinMasumiyetiKorunsun44K" target="_blank">##AhmetinMasumiyetiKorunsun44K</a>
+                    <a href="https://x.com/search?q=%23BeyazıtMeydanı27K" target="_blank">##BeyazıtMeydanı27K</a>
+                </div>
+                
+                <div class="card">
+                    <a href="https://x.com/search?q=%23AhmetinMasumiyetiKorunsun46K" target="_blank">##AhmetinMasumiyetiKorunsun46K</a>
                 </div>
                 
                 <div class="card">
@@ -733,28 +745,108 @@
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23EşrefRüya46K" target="_blank">##EşrefRüya46K</a>
+                    <a href="https://x.com/search?q=%23Arsenal836K" target="_blank">#Arsenal836K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23Arsenal787K" target="_blank">#Arsenal787K</a>
+                    <a href="https://x.com/search?q=%23Arteta106K" target="_blank">#Arteta106K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23Arteta93K" target="_blank">#Arteta93K</a>
+                    <a href="https://x.com/search?q=%23Ayşe16K" target="_blank">#Ayşe16K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23Diplomasız Erdoğan" target="_blank">#Diplomasız Erdoğan</a>
+                    <a href="https://x.com/search?q=%23Saka110K" target="_blank">#Saka110K</a>
                 </div>
                 
                 <div class="card">
-                    <a href="https://x.com/search?q=%23Saka104K" target="_blank">#Saka104K</a>
+                    <a href="https://x.com/search?q=%23Luis Enrique41K" target="_blank">#Luis Enrique41K</a>
                 </div>
+                </div></div>
+            <h2 id="muzik" class="section-title">🎧 Çalma Listem</h2>
+            <div class="card">
+            <div class="scrollable-spotify-list">
+            
+                <p><strong>Şanışer - Gel</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/3SsbiElZb2gUSd5i7BOSUC"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
                 
-                <div class="card">
-                    <a href="https://x.com/search?q=%23Powell89K" target="_blank">#Powell89K</a>
-                </div>
+                <p><strong>Şanışer - Beni Bana Yar Etmezler</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/0YUZmtxTAGdPbdW216SyPw"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+                
+                <p><strong>Şanışer - Ben Kimim</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/1yhcyiPqHUCGVy19YHGuTj"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+                
+                <p><strong>Şanışer - Yazamam Ecele</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/2aBpR50B5DaOGfVANR6xft"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+                
+                <p><strong>Ceza - Neyim Var Ki (feat. Sagopa K)</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/09XOVDSIbBxBf6Kr1vGnHf"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+                
+                <p><strong>Sokrat St, Şanışer - Tek Hayalim</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/1Aza4hQZld88xJUwAEebQg"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+                
+                <p><strong>Sertab Erener, Şanışer - Vur Yüreğim</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/4jbyZmVqoY2Q8XqDUwWsNs"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+                
+                <p><strong>Şanışer, Sokrat St - Yalan - Live</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/2wLEMXa9TaqSb85jY8BJgR"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+                
+                <p><strong>Şanışer, Sertab Erener - Peşimde Kara Geceler - Live</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/3xiNpBrIYMXO0Fg1gqLGIb"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+                
+                <p><strong>Gazapizm, Melike Şahin - Olur Mu</strong></p>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/45dj2Fx0LiZgSuXGnyLDRG"
+                    width="100%" height="80" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
                 </div></div>
             <h2 id="filmler" class="section-title">🎬 Vizyondaki Filmler</h2>
             <div class="film-container">
@@ -966,6 +1058,11 @@
                 <div class="container">
                 
                         <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/10-saat-su-verilmeyecek-7-mayis-istanbul-su-kesintisi-istanbulda-sular-ne-zaman-gelecek-iski-su-ariza-ekrani-2280714" target="_blank">10 SAAT SU VERİLMEYECEK! 7 Mayıs İstanbul Su Kesintisi: İstanbul SULTANGAZİ Sular Ne Zaman Gelecek? İSKİ Su Arıza Ekranı…</a>
+                            <p>08 May 2025, 03:16</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/polisin-dur-ihtarina-uymayan-chp-otobus-soforune-13-5-yila-kadar-hapis-istemi-2281221" target="_blank">CHP şoförüne 13,5 yıl hapis istendi | Polislerin üzerine sürülen otobüs silah sayıldı</a>
                             <p>08 May 2025, 01:40</p>
                         </div>
@@ -981,6 +1078,11 @@
                         </div>
                     
                         <div class="card">
+                            <a href="https://www.cumhuriyet.com.tr/siyaset/son-dakika-ekrem-imamoglunun-x-hesabina-erisim-engeli-geldi-2336345" target="_blank">Son Dakika... Ekrem İmamoğlu'nun X hesabına erişim engeli geldi!</a>
+                            <p>08 May 2025, 02:47</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/lvbel-c5in-elleri-kelepceli-goruntuleri-ortaya-cikti-2281301" target="_blank">Lvbel C5'in elleri kelepçeli görüntüleri ortaya çıktı</a>
                             <p>07 May 2025, 23:33</p>
                         </div>
@@ -988,6 +1090,11 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/video/turkiye/alkollu-surucuye-hapis-cezasi-yolda-2281290" target="_blank">Alkollü sürücüye hapis cezası yolda</a>
                             <p>07 May 2025, 23:32</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.hurriyet.com.tr/gundem/rumeysa-ozturk-turkiyenin-houston-baskonsoloslugu-personelince-9-mayista-ziyaret-edilecek-42792762" target="_blank">Rümeysa Öztürk, Türkiye'nin Houston Başkonsolosluğu personelince 9 Mayıs'ta ziyaret edilecek</a>
+                            <p>07 May 2025, 23:31</p>
                         </div>
                     
                         <div class="card">
@@ -999,74 +1106,59 @@
                             <a href="https://www.cnnturk.com/turkiye/minguzzi-sorusturmasinda-2-supheliye-tutuklama-talebi-2281280" target="_blank">SON DAKİKA | Minguzzi soruşturmasında 2 şüpheli daha tutuklandı</a>
                             <p>07 May 2025, 22:26</p>
                         </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cumhuriyet.com.tr/siyaset/chpli-murat-emirden-hakan-fidana-diploma-sorusu-yokun-tanidigi-2336344" target="_blank">CHP’li Murat Emir’den Hakan Fidan’a ‘diploma’ sorusu: ‘YÖK'ün tanıdığı ve YÖK'ün denkliğini kabul ettiğine dönük hiçbir bilgi yok’</a>
-                            <p>08 May 2025, 01:11</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cumhuriyet.com.tr/siyaset/mhpli-yonterden-dikkat-ceken-sedat-peker-paylasimi-her-seyin-bir-2336343" target="_blank">MHP’li Yönter’den dikkat çeken ‘Sedat Peker’ paylaşımı: ‘Her şeyin bir vakti var…’</a>
-                            <p>08 May 2025, 00:46</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cumhuriyet.com.tr/turkiye/esenyurtta-3-aracli-zincirleme-kaza-2-yarali-2336342" target="_blank">Esenyurt’ta 3 araçlı zincirleme kaza: 2 yaralı</a>
-                            <p>08 May 2025, 00:34</p>
-                        </div>
                     </div></div>
                 <div class="category-section">
                 <h2 class="section-title" id="">Yabancı Kaynak</h2>
                 <div class="container">
                 
                         <div class="card">
-                            <a href="https://www.nytimes.com/live/2025/05/07/world/pope-conclave-updates" target="_blank">No Pope Elected in Conclave’s First Vote</a>
-                            <p>07 May 2025, 22:34</p>
+                            <a href="https://www.bbc.com/news/articles/cly8y1kglkpo" target="_blank">Is Ivory Coast's red card politics an own goal for democracy?</a>
+                            <p>08 May 2025, 00:07</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/us-news/live/2025/may/07/donald-trump-joe-biden-us-president-latest-politics-live-news" target="_blank">US judge rules deportation flight to Libya would violate court order amid reported Trump plans – live</a>
-                            <p>07 May 2025, 22:30</p>
+                            <a href="https://www.theguardian.com/australia-news/2025/may/08/police-rangers-and-excavators-move-in-to-brisbane-parks-as-tent-city-residents-face-eviction" target="_blank">Police, rangers and excavators move in to Brisbane parks as tent city residents face eviction</a>
+                            <p>08 May 2025, 00:00</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/07/world/asia/india-pakistan-conflict.html" target="_blank">India and Pakistan May Have an Off-Ramp After Their Clash. Will They Take It?</a>
-                            <p>07 May 2025, 22:30</p>
+                            <a href="https://www.theguardian.com/us-news/2025/may/07/trump-surgeon-general-nominee-casey-means" target="_blank">Trump nominates Dr Casey Means, influencer close to RFK Jr, for surgeon general</a>
+                            <p>07 May 2025, 23:56</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/07/climate/electric-vehicle-charging-funding-states-lawsuit.html" target="_blank">States Sue Trump Administration Over Funding Freeze for EV Charging</a>
-                            <p>07 May 2025, 22:29</p>
+                            <a href="https://www.theguardian.com/us-news/live/2025/may/07/donald-trump-joe-biden-us-president-latest-politics-live-news" target="_blank">Columbia calls in New York police department to help clear Gaza solidarity sit-in – live</a>
+                            <p>07 May 2025, 23:55</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/australia-news/live/2025/may/08/australia-news-live-anthony-albanese-environment-labor-cabinet-liberal-leadership-sussan-ley-angus-taylor-ntwnfb" target="_blank">Australia news live: Rudd criticises Trump’s film tariff plan saying we don’t want to ‘tax Bluey’; PM pledges to deliver new environmental protection body</a>
-                            <p>07 May 2025, 22:27</p>
+                            <a href="https://www.theguardian.com/australia-news/live/2025/may/08/australia-news-live-anthony-albanese-environment-labor-cabinet-liberal-leadership-sussan-ley-angus-taylor-ntwnfb" target="_blank">Australia news live: Rudd criticises Trump’s proposed ‘tax on Bluey’; Faruqi refuses to concede Bandt will lose Melbourne</a>
+                            <p>07 May 2025, 23:49</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/australia-news/2025/may/08/three-children-dead-after-suspicious-fire-in-toowoomba-home-ntwnfb" target="_blank">Three children dead after suspicious fire in Toowoomba home</a>
-                            <p>07 May 2025, 22:19</p>
+                            <a href="https://www.theguardian.com/us-news/2025/may/07/columbia-university-police-pro-palestinian-protests" target="_blank">Columbia University calls in police to clear pro-Palestinian protesters</a>
+                            <p>07 May 2025, 23:41</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/07/briefing/india-pakistan-pope-conclave-gaza-israel-airstrikes.html" target="_blank">Thursday Briefing: What’s Next for India and Pakistan?</a>
-                            <p>07 May 2025, 22:11</p>
+                            <a href="https://www.nytimes.com/2025/05/07/world/asia/india-pakistan-downed-aircraft.html" target="_blank">The Indian Aircraft Pakistan Says It Shot Down</a>
+                            <p>07 May 2025, 23:39</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/07/world/asia/india-pakistan-kashmir-photos.html" target="_blank">Scenes From India’s Strikes in Kashmir and Pakistan</a>
-                            <p>07 May 2025, 22:04</p>
+                            <a href="https://www.nytimes.com/2025/05/07/world/middleeast/libya-us-migrants-deal.html" target="_blank">Judge Says Trump Plan to Send Migrants to Libya Would Violate Court Order</a>
+                            <p>07 May 2025, 23:13</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/world/2025/may/07/brazil-gangs-terrorist-designation-pcc-comando-vermelho" target="_blank">Brazil rejects US request to designate two gangs as terrorist organizations</a>
-                            <p>07 May 2025, 22:03</p>
+                            <a href="https://www.bbc.com/news/articles/cdxnxg379ylo" target="_blank">'This will be the work of years': The medics identifying remains from Syria's mass graves</a>
+                            <p>07 May 2025, 23:13</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/07/insider/pope-conclave-process.html" target="_blank">How The Times Covers the Papal Conclave</a>
-                            <p>07 May 2025, 21:48</p>
+                            <a href="https://www.theguardian.com/us-news/2025/may/07/trump-cuts-national-parks-grants" target="_blank">Trump reportedly eyes $26m in funding cuts for US national parks</a>
+                            <p>07 May 2025, 23:07</p>
                         </div>
                     </div></div>
                 <div class="category-section">
@@ -1084,6 +1176,11 @@
                         </div>
                     
                         <div class="card">
+                            <a href="https://anlatilaninotesi.com.tr/20250508/ekrem-imamoglunun-sosyal-medya-hesabina-erisim-engellendi-1096043594.html" target="_blank">Ekrem İmamoğlu'nun sosyal medya hesabına erişim engellendi</a>
+                            <p>08 May 2025, 02:52</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/dunya/almanya-duyurdu-iltica-talebinde-bulunanlar-geri-cevrilecek-2281302" target="_blank">Almanya duyurdu! İltica talebinde bulunanlar geri çevrilecek</a>
                             <p>07 May 2025, 23:36</p>
                         </div>
@@ -1091,6 +1188,11 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/dunya/son-dakika-haberi-sadece-cnn-turkte-sara-elizede-suriye-lider-macron-ile-gorusuyor-2281250" target="_blank">Son dakika haberi: Sadece CNN TÜRK'te: Şara Elize'de! Suriye Lideri, Macron ile görüştü</a>
                             <p>07 May 2025, 23:22</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://anlatilaninotesi.com.tr/20250508/almanyanin-yeni-basbakani-merz-alman-askerlerinin-ukraynaya-gonderilmesi-soz-konusu-degil-1096043296.html" target="_blank">Almanya’nın yeni Başbakanı Merz: Alman askerlerinin Ukrayna'ya gönderilmesi söz konusu değil</a>
+                            <p>08 May 2025, 02:01</p>
                         </div>
                     
                         <div class="card">
@@ -1104,23 +1206,13 @@
                         </div>
                     
                         <div class="card">
+                            <a href="https://www.bbc.com/turkce/articles/c89g93q9487o" target="_blank">'Bebeğimi öldürdüğümü sandım': Doğum sonrası psikoz nedir?</a>
+                            <p>07 May 2025, 22:47</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://anlatilaninotesi.com.tr/20250508/mardinde-maskeli-4-kisi-gece-saatlerinde-bir-evin-kapisini-balta-ve-cekicle-kirip-kacti-1096042935.html" target="_blank">Mardin'de maskeli 4 kişi gece saatlerinde bir evin kapısını balta ve çekiçle kırıp kaçtı</a>
                             <p>08 May 2025, 01:43</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/dunya/pakistan-nerede-pakistan-askeri-gucu-nukleer-silahlari-pakistanin-dini-inanci-nedir-pakistan-nufusu-kactir-pakistan-para-birimi-2280842" target="_blank">Pakistan nerede? Pakistan askeri gücü, nükleer silahları! Pakistan'ın dini inancı nedir? Pakistan nüfusu kaçtır? Pakistan para birimi!</a>
-                            <p>07 May 2025, 22:42</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/dunya/hindistan-nufusu-hindistan-askeri-gucu-nukleer-silahlari-hindistan-dini-nedir-haritada-nerede-nufusu-kac-hindistan-para-birimi-2280844" target="_blank">HİNDİSTAN NÜFUSU: Hindistan askeri gücü nükleer silahları! Hindistan dini nedir, haritada nerede? Nüfusu kaç? Hindistan para birimi!</a>
-                            <p>07 May 2025, 22:40</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250508/zafer-bayraminin-80-yildonumunde-putin-tarafindan-ilan-edilen-uc-gunluk-ateskes-basladi-1096042787.html" target="_blank">Zafer Bayramı'nın 80. yıldönümünde Putin tarafından ilan edilen üç günlük ateşkes başladı</a>
-                            <p>08 May 2025, 01:23</p>
                         </div>
                     </div></div>
                 <div class="category-section">
@@ -1236,13 +1328,13 @@
                 <div class="container">
                 
                         <div class="card">
-                            <a href="https://www.cnnturk.com/spor/futbol/sampiyonlar-liginde-finalin-adi-inter-psg-2281306" target="_blank">Şampiyonlar Ligi'nde finalin adı: Inter - PSG</a>
-                            <p>08 May 2025, 00:01</p>
+                            <a href="https://www.cnnturk.com/spor/futbol/psg-arsenal-maci-canli-izle-uefa-sampiyonlar-ligi-yari-final-maci-trt-1-hd-kesintisiz-ve-sifresiz-izle-ekrani-2281197" target="_blank">PSG - ARSENAL MAÇI CANLI İZLE| UEFA Şampiyonlar Ligi Yarı Final maçı TRT 1 HD PSG ARSENAL izle kesintisiz ve şifresiz izle ekranı</a>
+                            <p>08 May 2025, 03:16</p>
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.cnnturk.com/spor/futbol/psg-arsenal-maci-canli-izle-uefa-sampiyonlar-ligi-yari-final-maci-trt-1-hd-kesintisiz-ve-sifresiz-izle-ekrani-2281197" target="_blank">PSG - ARSENAL MAÇI CANLI İZLE| UEFA Şampiyonlar Ligi Yarı Final maçı TRT 1 HD PSG ARSENAL izle kesintisiz ve şifresiz izle ekranı</a>
-                            <p>07 May 2025, 22:36</p>
+                            <a href="https://www.cnnturk.com/spor/futbol/sampiyonlar-liginde-finalin-adi-inter-psg-2281306" target="_blank">Şampiyonlar Ligi'nde finalin adı: Inter - PSG</a>
+                            <p>08 May 2025, 00:01</p>
                         </div>
                     
                         <div class="card">
