@@ -148,11 +148,10 @@
         transform: scale(1.05);
       }
       .weather-card img {
-        width: 40%;
-        height: auto;
-        margin-bottom: 0.5em;
-        }
-
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+      }
       .weather-card.sunny   { background: linear-gradient(135deg,#ffcc00,#ff9900); }
       .weather-card.rainy   { background: linear-gradient(135deg,#4a90e2,#2a5298); }
       .weather-card.snowy   { background: linear-gradient(135deg,#b3e5fc,#64b5f6); color:#111; }
@@ -216,10 +215,8 @@
       }
       .film-card img {
         width: 100%;
-        height: auto;
         border-radius: 8px;
-        }
-
+      }
       .film-card h3 {
         margin: 10px 0;
         font-size: 18px;
@@ -251,15 +248,15 @@
       /* ── Gece Modu Butonu ── */
       .toggle-button {
         position: fixed;
-          font-size: 1em;
-            padding: 0.6em 1em;
-            top: 5vh;
-            right: 2vw;
+        top: 80px;
+        right: 10px;
         background: var(--primary-color);
         color: #fff;
+        padding: 10px 15px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 16px;
         z-index: 9999;
         transition: background-color 0.5s ease, color 0.5s ease;
       }
@@ -304,25 +301,15 @@
       /* ── Responsive ── */
       @media (max-width: 768px) {
         .container,
-            .exchange-container,
-            .film-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 5%;
-            padding: 5%;
-            box-sizing: border-box;
-            }
-
+        .exchange-container,
+        .film-container {
+          flex-direction: column;
+          align-items: center;
+        }
         .card, .film-card, .weather-card {
-            max-width: 90%;
-            width: 100%;
-            padding: 1em;
-            border-radius: 12px;
-            box-shadow: 0 0.4em 1em rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
+          max-width: 320px;
+          width: 100%;
+        }
         table {
           font-size: 14px;
         }
@@ -333,14 +320,13 @@
         
         .ratings-container {
             margin-top: 20px;
-            padding: 1em;
+            padding: 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
             background-color: #f9f9f9;
             text-align: center;
             overflow-x: auto;
             max-width: 100%;
-            box-sizing: border-box;
         }
                        
         .film-container {
@@ -522,7 +508,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 12 May 2025, 11:30</p>
+      <p>Son Güncelleme: 12 May 2025, 11:32</p>
 
             <!-- Hava Durumu -->
             <h2 id="hava" class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -614,7 +600,7 @@
                     </div>
             <h2 id="trafik" class="section-title">🚦 İstanbul Trafik Durumu</h2>
             <div style="width: 100%; max-width: 100%; margin: 0 auto;">
-                <div id="map" style="width: 100%; height: 50vh;"></div>
+                <div id="map" style="width: 100%; height: 400px;"></div>
             </div>
 
             <script>
@@ -1606,6 +1592,16 @@
                 <div class="container">
                 
                         <div class="card">
+                            <a href="https://www.theguardian.com/politics/live/2025/may/12/immigration-keir-starmer-labour-reform-visa-foreign-workers-uk-politics-latest-live-news" target="_blank">Keir Starmer promises net migration will fall ‘significantly’ by end of this parliament – UK politics live</a>
+                            <p>12 May 2025, 08:20</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.theguardian.com/world/live/2025/may/12/israel-gaza-hamas-edan-alexander-hostage-donald-trump-latest-live-news" target="_blank">Israeli strike on school kills 16; Hamas agrees to release last living American hostage in Gaza – Middle East crisis live</a>
+                            <p>12 May 2025, 08:18</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.bbc.com/news/articles/czel3ry9x1do" target="_blank">Kurdish group PKK says it is laying down arms and disbanding</a>
                             <p>12 May 2025, 08:13</p>
                         </div>
@@ -1618,11 +1614,6 @@
                         <div class="card">
                             <a href="https://www.theguardian.com/world/live/2025/may/12/russia-ukraine-war-zelenskyy-putin-trump-europe-live-latest-news" target="_blank">Zelenskyy challenges Putin to meet him for peace talks after Trump and European leaders increase pressure – Europe live</a>
                             <p>12 May 2025, 08:08</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/politics/live/2025/may/12/immigration-keir-starmer-labour-reform-visa-foreign-workers-uk-politics-latest-live-news" target="_blank">Keir Starmer promises net migration will fall ‘significantly’ by end of this parliament – UK politics live</a>
-                            <p>12 May 2025, 08:04</p>
                         </div>
                     
                         <div class="card">
@@ -1646,11 +1637,6 @@
                         </div>
                     
                         <div class="card">
-                            <a href="https://www.theguardian.com/world/live/2025/may/12/israel-gaza-hamas-edan-alexander-hostage-donald-trump-latest-live-news" target="_blank">Israeli strike on school kills 16; Hamas agrees to release last living American hostage in Gaza – Middle East crisis live</a>
-                            <p>12 May 2025, 07:45</p>
-                        </div>
-                    
-                        <div class="card">
                             <a href="https://www.theguardian.com/business/2025/may/12/pharmaceutical-stocks-slide-as-trump-vows-to-cut-prescription-drug-prices-by-30-80" target="_blank">Pharmaceutical stocks slide as Trump vows to cut US prescription drug prices ‘by 30-80%’</a>
                             <p>12 May 2025, 07:37</p>
                         </div>
@@ -1667,6 +1653,11 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/dunya/israil-gazzede-yerinden-edilenlerin-sigindigi-okulu-bombaladi-5i-cocuk-15-kisi-hayatini-kaybetti-2283170" target="_blank">İsrail Gazze'de yerinden edilenlerin sığındığı okulu bombaladı: 5'i çocuk 15 kişi hayatını kaybetti</a>
                             <p>12 May 2025, 10:28</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.bbc.com/turkce/articles/cr4zle15lr5o" target="_blank">AKP Sözcüsü Çelik: 'Terörsüz Türkiye' hedefi için önemli bir aşama </a>
+                            <p>12 May 2025, 08:29</p>
                         </div>
                     
                         <div class="card">
@@ -1692,11 +1683,6 @@
                         <div class="card">
                             <a href="https://anlatilaninotesi.com.tr/20250512/24-saat-icinde-13-kisi-yildirim-carpmasindan-oldu-1096142886.html" target="_blank">24 saat içinde 13 kişi yıldırım çarpmasından öldü</a>
                             <p>12 May 2025, 10:50</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.bbc.com/turkce/articles/cr4zle15lr5o" target="_blank">AKP Sözcüsü Çelik: 'Terörsüz Türkiye' hedefi için önemli bir aşama </a>
-                            <p>12 May 2025, 07:47</p>
                         </div>
                     
                         <div class="card">
@@ -1768,6 +1754,11 @@
                 <div class="container">
                 
                         <div class="card">
+                            <a href="https://www.cnnturk.com/magazin/dizi/reyting-sonuclari-11-mayis-2025-reyting-sonuclari-birincisi-hangi-dizi-oldu-teskilat-deha-sakir-pasa-ailesi-reyting-sonucu-2249584" target="_blank">REYTİNG SONUÇLARI 11 MAYIS 2025| Reyting Sonuçları Birincisi Hangi Dizi Oldu? Teşkilat, Deha, Şakir Paşa Ailesi Reyting Sonucu!</a>
+                            <p>12 May 2025, 11:30</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/magazin/live-o-ses-turkiye-final-kim-kazandi-sampiyon-canli-yayinda-belli-oluyor-2282968" target="_blank">O SES TÜRKİYE KİM KAZANDI? 2025 O Ses Türkiye Şampiyonu Mert oldu! Birinciliği böyle kutladı!</a>
                             <p>12 May 2025, 08:53</p>
                         </div>
@@ -1810,11 +1801,6 @@
                         <div class="card">
                             <a href="https://www.magazinsortie.com/mujde-arin-gergin-anlari-niye-cekiyorsun-baskasiyla-konusurken" target="_blank">Müjde Ar'ın gergin anları... “Niye çekiyorsun başkasıyla konuşurken?"</a>
                             <p>12 May 2025, 00:48</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/magazin/o-ses-turkiye-eray-alp-kimdir-eray-ve-alp-gursu-kac-yasinda-nereli-ikizler-finalde-2283011" target="_blank">O Ses Türkiye Eray Alp kimdir? Eray ve Alp Gürsü kaç yaşında, nereli? İKİZLER FİNALDE!</a>
-                            <p>11 May 2025, 20:48</p>
                         </div>
                     </div></div>
                 <div class="category-section">
