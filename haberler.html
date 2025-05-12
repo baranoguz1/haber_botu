@@ -148,10 +148,11 @@
         transform: scale(1.05);
       }
       .weather-card img {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
-      }
+        width: 40%;
+        height: auto;
+        margin-bottom: 0.5em;
+        }
+
       .weather-card.sunny   { background: linear-gradient(135deg,#ffcc00,#ff9900); }
       .weather-card.rainy   { background: linear-gradient(135deg,#4a90e2,#2a5298); }
       .weather-card.snowy   { background: linear-gradient(135deg,#b3e5fc,#64b5f6); color:#111; }
@@ -215,8 +216,10 @@
       }
       .film-card img {
         width: 100%;
+        height: auto;
         border-radius: 8px;
-      }
+        }
+
       .film-card h3 {
         margin: 10px 0;
         font-size: 18px;
@@ -248,15 +251,15 @@
       /* ── Gece Modu Butonu ── */
       .toggle-button {
         position: fixed;
-        top: 80px;
-        right: 10px;
+          font-size: 1em;
+            padding: 0.6em 1em;
+            top: 5vh;
+            right: 2vw;
         background: var(--primary-color);
         color: #fff;
-        padding: 10px 15px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        font-size: 16px;
         z-index: 9999;
         transition: background-color 0.5s ease, color 0.5s ease;
       }
@@ -301,15 +304,25 @@
       /* ── Responsive ── */
       @media (max-width: 768px) {
         .container,
-        .exchange-container,
-        .film-container {
-          flex-direction: column;
-          align-items: center;
-        }
+            .exchange-container,
+            .film-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 5%;
+            padding: 5%;
+            box-sizing: border-box;
+            }
+
         .card, .film-card, .weather-card {
-          max-width: 320px;
-          width: 100%;
-        }
+            max-width: 90%;
+            width: 100%;
+            padding: 1em;
+            border-radius: 12px;
+            box-shadow: 0 0.4em 1em rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
         table {
           font-size: 14px;
         }
@@ -320,13 +333,14 @@
         
         .ratings-container {
             margin-top: 20px;
-            padding: 15px;
+            padding: 1em;
             border: 1px solid #ddd;
             border-radius: 8px;
             background-color: #f9f9f9;
             text-align: center;
             overflow-x: auto;
             max-width: 100%;
+            box-sizing: border-box;
         }
                        
         .film-container {
@@ -508,7 +522,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 12 May 2025, 11:10</p>
+      <p>Son Güncelleme: 12 May 2025, 11:15</p>
 
             <!-- Hava Durumu -->
             <h2 id="hava" class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -518,21 +532,21 @@
                         <p><strong>12:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADe0lEQVR4nO3cWahNURzH8a8picg1hqLEC4UMGe6DKfMDhaQkojwpRZQHxZs3PChSui+elGSWkHnMTB5MV0mUISQUrSy6xO24Z6//f+38PnW6t+5t/9Y5v3P2uPZBRERERERERERERERERERERERERMRMM6ugl8tnFLWoGqAWGAoMBHoAHePfmgNvgBfATeA6cAZ4XERw5837ilhMo1omTyhGf2AiMB6YArStYKlTG/x+Agiv5mngQs5PNPdC+gDrgQVVLmdsfATHgbXAuQLGV7jmOQ4K6ALUAQ8KKON344CzwDFgeMHLrlqOhcwD7sQiUm7jwurvIrAqYcY/y62QbcCusP00zNwInMpl9Z1TIYeApU7ZtfFT2dsp/6ccCmkZN7STncfRL67CXEvJoZDDDfaAvHUFznuuvrwL2R43rjnpDlwCWnmMybOQWcASx/zGDAY2eAR7FdIe2OmUXanVHqtSr0K2x1JyZ/6m8SikEzDXIbcpwh7XdMtAj0K2OmRWYwfQwirMupDwjptjnFmtbsAkqzDrQqZW8D85mmY1JutCphjnFWW+1cGiZSHtrDeQBaqJp+2TsyxkbImuUP6JyafbspCRhlkpDLEIsSxkgGFWCl0sQiwL6WmYlUIlEyuqZllIB8OsFFpbhFgW8tUwq7QsC8l1hktWLF+k9yV4PRrzxSLEspBnhlkpvLMIsSzknmFWCq8tQiwLuWyYlcIdixDLQo4ZZqVw1CLEspDncfZ5GX2KE/mSs94V3VvSQnYDby2CrAsx+dgnsN8qyLqQa3G6Zpl8Bg5Yjdfj6HmxQ2Y1wu0Kr6zCPAq5XaJd4A/AJstAr/NLi5xy/9Vy60CvQm4Ba5yyK7Unzsky5XkGdmO81y9H4dbqZR7j8iwkXB8ZA9Q7juFvRsUDWXM5XKMYHb5XIINx/BDu5LrrFZ5DIU+BEcCjDMYS5o0d8RxALlfxHsZZKVed8sNxxiDLA8C/yemyatjnHxm/ucFSXbxj6obv0/8ut+vc4TTFujhL8ErirPp4nLEQeJI4q2K5TjwId+YOA2YD9wtedjhruxLoC2wpeNlVy32u7e74mAlMiD97NWE57+KBXthgH8xsr+4XZZn8vCc+VjT4mqYhcXpnmFXfJv5f+G6Uj3F79DJedj0Zr1ZmW4KIiIiIiIiIiIiIiIiIiIiIiIjI/wH4BqdEdDZEJK4oAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Açık</p>
-                        <p><strong>14.57°C</strong></p>
+                        <p><strong>15.68°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>15:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADDElEQVR4nO3bT4hNYRjH8e8YIqPLICSR/NtoShQKK5qJbOxIig3Z+FuUWCglTFiIBSn/diwoGxY0SGOnxAIloUgyG8bI6K136qo73TO35znnPeP3qdnMnfu8zzm/O+e85z3nIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIqXW5NF8T89365ITgE3AamAu0AL0AR+BZ8B14Ln1oFlUKuNN66UeyFLgELAWaK7zty+A08Alq8Gz+J8COQAcb+B9T4H20IZFE/VYBzLCo0kDtxsMI1gGhE/E4qS2KKMUA7kJrDeocw+Yb1AnV6kFshPYYFSrFbhhVCs3KQXSBpwzrhkOW3uNa7pKKZAwrfVwBJhc7KZll0ogYUq70al2mAZ1ONU2l0og64CZjvWX1Phdc4qTmlQaWu5cf2AKvAi4AnTHq/z3wEPgAjDHuYdMRqbQBDDbuX4FOAwcrfHadGAVsB3YHJdhCpNKIOOc67fFn3quxQnAWed+BpXKIetrAj0MOAOsLGrwIgOZVHXc/lZgH7VsK2rgvBcXw7L5LmALMC9+IPqBX8Boj14a9BOYBXyu9/ayLi6OBU7GQ9MxYEHV2E2JhRGMGWSq7C6Pk3q4uXS/hKuvLUUM6h1ICOMVMNV5HA/vihjUM5BwJdxV0jA+xFvE4d5KL/AynlfceQayB1iYx0Y4mAg8iecS4t3HW8BF4LHnwF6zrFHAW2CGR/2CXa6eFpdllrV1mIZB3LYur33nFUi7U91UrABOePTiFUghc/ic7YsnfVNegbSmuAcd7LcumepjQGWRZQV5SLwC+VKq3dq4KdYFvQLpdqqbGvP95xXIXae6qemz7scrkKvAG6faKflk3YvnSb3TsXYqHln34RnIeeCBY/2i/QZOWffgPe3tKGoZOwcHgdfWw3gH0hvvDg63/5ROr0NyHheGIZQ18bko8++65ewHsNvjCn1A3g85hJtWO+KD1dOq7jf0e/RhIHxg/8SnYu7ELxH9880s6+V3ERERERERERERERERERERERERERERERGRoQD+AsqjaPphCrlmAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Parçalı az bulutlu</p>
-                        <p><strong>15.91°C</strong></p>
+                        <p><strong>16.64°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
                         <p><strong>18:00</strong></p>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAADe0lEQVR4nO3cWahNURzH8a8picg1hqLEC4UMGe6DKfMDhaQkojwpRZQHxZs3PChSui+elGSWkHnMTB5MV0mUISQUrSy6xO24Z6//f+38PnW6t+5t/9Y5v3P2uPZBRERERERERERERERERERERERERMRMM6ugl8tnFLWoGqAWGAoMBHoAHePfmgNvgBfATeA6cAZ4XERw5837ilhMo1omTyhGf2AiMB6YArStYKlTG/x+Agiv5mngQs5PNPdC+gDrgQVVLmdsfATHgbXAuQLGV7jmOQ4K6ALUAQ8KKON344CzwDFgeMHLrlqOhcwD7sQiUm7jwurvIrAqYcY/y62QbcCusP00zNwInMpl9Z1TIYeApU7ZtfFT2dsp/6ccCmkZN7STncfRL67CXEvJoZDDDfaAvHUFznuuvrwL2R43rjnpDlwCWnmMybOQWcASx/zGDAY2eAR7FdIe2OmUXanVHqtSr0K2x1JyZ/6m8SikEzDXIbcpwh7XdMtAj0K2OmRWYwfQwirMupDwjptjnFmtbsAkqzDrQqZW8D85mmY1JutCphjnFWW+1cGiZSHtrDeQBaqJp+2TsyxkbImuUP6JyafbspCRhlkpDLEIsSxkgGFWCl0sQiwL6WmYlUIlEyuqZllIB8OsFFpbhFgW8tUwq7QsC8l1hktWLF+k9yV4PRrzxSLEspBnhlkpvLMIsSzknmFWCq8tQiwLuWyYlcIdixDLQo4ZZqVw1CLEspDncfZ5GX2KE/mSs94V3VvSQnYDby2CrAsx+dgnsN8qyLqQa3G6Zpl8Bg5Yjdfj6HmxQ2Y1wu0Kr6zCPAq5XaJd4A/AJstAr/NLi5xy/9Vy60CvQm4Ba5yyK7Unzsky5XkGdmO81y9H4dbqZR7j8iwkXB8ZA9Q7juFvRsUDWXM5XKMYHb5XIINx/BDu5LrrFZ5DIU+BEcCjDMYS5o0d8RxALlfxHsZZKVed8sNxxiDLA8C/yemyatjnHxm/ucFSXbxj6obv0/8ut+vc4TTFujhL8ErirPp4nLEQeJI4q2K5TjwId+YOA2YD9wtedjhruxLoC2wpeNlVy32u7e74mAlMiD97NWE57+KBXthgH8xsr+4XZZn8vCc+VjT4mqYhcXpnmFXfJv5f+G6Uj3F79DJedj0Zr1ZmW4KIiIiIiIiIiIiIiIiIiIiIiIjI/wH4BqdEdDZEJK4oAAAAAElFTkSuQmCC" alt="Hava Durumu">
                         <p>Açık</p>
-                        <p><strong>15.8°C</strong></p>
+                        <p><strong>16.17°C</strong></p>
                     </div>
                     
                     <div class="weather-card default-weather">
@@ -600,7 +614,7 @@
                     </div>
             <h2 id="trafik" class="section-title">🚦 İstanbul Trafik Durumu</h2>
             <div style="width: 100%; max-width: 100%; margin: 0 auto;">
-                <div id="map" style="width: 100%; height: 400px;"></div>
+                <div id="map" style="width: 100%; height: 50vh;"></div>
             </div>
 
             <script>
@@ -1592,6 +1606,16 @@
                 <div class="container">
                 
                         <div class="card">
+                            <a href="https://www.bbc.com/news/articles/czel3ry9x1do" target="_blank">Kurdish group PKK says it is laying down arms and disbanding</a>
+                            <p>12 May 2025, 08:13</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.nytimes.com/2025/05/12/world/europe/pope-leo-peru.html" target="_blank">Pope Leo Is Celebrated in the Peruvian City Where He Served as Bishop</a>
+                            <p>12 May 2025, 08:09</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.nytimes.com/live/2025/05/12/world/pope-leo-news/heres-the-latest" target="_blank">Here’s the latest.</a>
                             <p>12 May 2025, 08:00</p>
                         </div>
@@ -1629,16 +1653,6 @@
                         <div class="card">
                             <a href="https://www.theguardian.com/business/2025/may/12/pharmaceutical-stocks-slide-as-trump-vows-to-cut-prescription-drug-prices-by-30-80" target="_blank">Pharmaceutical stocks slide as Trump vows to cut prescription drug prices ‘by 30-80%’</a>
                             <p>12 May 2025, 07:37</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.theguardian.com/australia-news/2025/may/12/monique-ryan-wins-kooyong-australian-federal-election-results-bradfield" target="_blank">Federal election results: Monique Ryan wins Kooyong while Liberal candidate Gisele Kapterian takes Bradfield</a>
-                            <p>12 May 2025, 07:19</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.nytimes.com/2025/05/12/world/asia/china-lula-latam-trade.html" target="_blank">China Courts Lula and Latin America After Trump’s Tariff Shock</a>
-                            <p>12 May 2025, 06:53</p>
                         </div>
                     </div></div>
                 <div class="category-section">
@@ -1808,6 +1822,11 @@
                 <div class="container">
                 
                         <div class="card">
+                            <a href="https://www.cnnturk.com/spor/nba/indiana-pacers-cleveland-cavaliersi-yenerek-seride-durumu-3-1-yapti-2283238" target="_blank">Indiana Pacers, Cleveland Cavaliers'ı yenerek seride durumu 3-1 yaptı</a>
+                            <p>12 May 2025, 11:12</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/spor/futbol/sivassporlu-taraftarlar-tesislerin-onunde-takimi-protesto-etti-2283229" target="_blank">Sivassporlu taraftarlar, tesislerin önünde takımı protesto etti</a>
                             <p>12 May 2025, 11:05</p>
                         </div>
@@ -1850,11 +1869,6 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/spor/turkish-airlines-openda-sampiyon-martin-couvra-2283036" target="_blank">Turkish Airlines Open’da şampiyon Martin Couvra</a>
                             <p>11 May 2025, 22:00</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/spor/futbol/kocaelisporu-sampiyon-yapti-gorevi-birakti-2283035" target="_blank">Kocaelispor’u şampiyon yaptı, görevi bıraktı</a>
-                            <p>11 May 2025, 21:37</p>
                         </div>
                     </div></div>
                 <div class="category-section">
