@@ -508,7 +508,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 15 May 2025, 11:42</p>
+      <p>Son Güncelleme: 15 May 2025, 11:48</p>
 
             <!-- Hava Durumu -->
             <h2 id="hava" class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -629,45 +629,77 @@
                 directionsRenderer = new google.maps.DirectionsRenderer();
                 directionsRenderer.setMap(map);
             }
-                       
+
             function useCurrentLocation() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function(position) {
                         const lat = position.coords.latitude;
                         const lng = position.coords.longitude;
-                        const currentLocation = lat + "," + lng;
-                        document.getElementById("start").value = currentLocation;
-                        alert("Mevcut konumunuz ayarlandı: " + currentLocation);
+                        document.getElementById("start").value = `${lat},${lng}`;
                     }, function(error) {
-                        alert("Konum alınamadı: " + error.message);
+                        alert("Konum bilgisi alınamadı: " + error.message);
                     });
                 } else {
-                    alert("Tarayıcınız konum bilgisini desteklemiyor.");
+                    alert("Tarayıcınız konum almayı desteklemiyor.");
                 }
             }
 
             function calculateRoute() {
-                const start = document.getElementById("start").value;
-                const end = document.getElementById("end").value;
+                const start = document.getElementById("start").value.trim();
+                const end = document.getElementById("end").value.trim();
 
                 if (!start || !end) {
                     alert("Lütfen başlangıç ve varış noktası girin.");
                     return;
                 }
 
-                directionsService.route({
-                    origin: start,
-                    destination: end,
-                    travelMode: google.maps.TravelMode.DRIVING
-                }, (response, status) => {
-                    if (status === "OK") {
-                        directionsRenderer.setDirections(response);
-                    } else {
-                        alert("Rota oluşturulamadı: " + status);
-                    }
+                Promise.all([geocodeAddress(start), geocodeAddress(end)])
+                    .then(results => {
+                        const [startValid, endValid] = results;
+
+                        if (!startValid) {
+                            alert("Başlangıç adresi doğrulanamadı. Lütfen kontrol edin.");
+                            return;
+                        }
+
+                        if (!endValid) {
+                            alert("Varış adresi doğrulanamadı. Lütfen kontrol edin.");
+                            return;
+                        }
+
+                        directionsService.route({
+                            origin: start,
+                            destination: end,
+                            travelMode: google.maps.TravelMode.DRIVING
+                        }, (response, status) => {
+                            if (status === "OK") {
+                                directionsRenderer.setDirections(response);
+                            } else {
+                                alert("Rota oluşturulamadı: " + status);
+                            }
+                        });
+
+                    })
+                    .catch(error => {
+                        console.error("Adres kontrol hatası:", error);
+                        alert("Adres doğrulama sırasında bir hata oluştu.");
+                    });
+            }
+
+            function geocodeAddress(address) {
+                return new Promise((resolve, reject) => {
+                    const geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({ address: address }, function(results, status) {
+                        if (status === "OK" && results.length > 0) {
+                            resolve(true);
+                        } else {
+                            resolve(false);
+                        }
+                    });
                 });
             }
             </script>
+
 
 
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMbTGAz9AGlSXzfROx94Mg1UcmuxIguBU&callback=initMap" async defer></script> 
@@ -1592,6 +1624,16 @@
                 <div class="container">
                 
                         <div class="card">
+                            <a href="https://www.cnnturk.com/turkiye/live-son-dakika-diplomasinin-kalbi-turkiyede-atiyor-iste-yasanan-son-gelismeler-2284783" target="_blank">SON DAKİKA... İstanbul'daki "barış masası" için kim, ne dedi? Rusya-Ukrayna zirvesine dair sıcak gelişmeler: Trump: Cuma günü İstanbul'a gidebilirim</a>
+                            <p>15 May 2025, 11:43</p>
+                        </div>
+                    
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/video/turkiye/chp-kurultayinda-saibe-sorusturmasi-saymaz-ve-kakisim-supheli-olarak-ifade-verdi-2284937" target="_blank">CHP kurultayında şaibe soruşturması: Saymaz ve Kakışım şüpheli olarak ifade verdi</a>
+                            <p>15 May 2025, 11:43</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/15-mayis-2025-persembe-gununun-son-dakika-onemli-gelismeleri-cnn-turk-11-30-bulteni-2284797" target="_blank">15 Mayıs 2025 Perşembe gününün son dakika önemli gelişmeleri! (CNN TÜRK 11.30 bülteni)</a>
                             <p>15 May 2025, 11:28</p>
                         </div>
@@ -1599,11 +1641,6 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/istanbulda-deas-operasyonu-11-gozalti-2284912" target="_blank">İstanbul'da DEAŞ operasyonu: 11 gözaltı</a>
                             <p>15 May 2025, 11:09</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/live-son-dakika-diplomasinin-kalbi-turkiyede-atiyor-iste-yasanan-son-gelismeler-2284783" target="_blank">SON DAKİKA... İstanbul'daki "barış masası" için kim, ne dedi? Rusya-Ukrayna zirvesine dair sıcak gelişmeler: Trump: Cuma günü İstanbul'a gidebilirim</a>
-                            <p>15 May 2025, 10:56</p>
                         </div>
                     
                         <div class="card">
@@ -1634,11 +1671,6 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/turkiye/son-dakika-alevler-bir-anda-yukseldi-can-havliyle-kactilar-2284819" target="_blank">SON DAKİKA... Alevler bir anda yükseldi! Can havliyle kaçtılar</a>
                             <p>15 May 2025, 10:13</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/turkiye/son-dakika-deprem-15-mayis-deprem-mi-oldu-nerede-kac-siddetinde-afad-ve-kandilli-rasathanesi-son-depremler-listesi-2260047" target="_blank">SON DAKİKA DEPREM! 15 Mayıs deprem mi oldu, nerede, kaç şiddetinde? AFAD ve Kandilli Rasathanesi son depremler listesi!</a>
-                            <p>15 May 2025, 10:03</p>
                         </div>
                     </div></div>
                 <div class="category-section">
@@ -1730,6 +1762,11 @@
                         </div>
                     
                         <div class="card">
+                            <a href="https://anlatilaninotesi.com.tr/20250515/kene-kabusu-geri-geldi-35-yasindaki-kadin-hayatini-kaybetti-1096242460.html" target="_blank">Kene kabusu geri geldi: 35 yaşındaki kadın hayatını kaybetti</a>
+                            <p>15 May 2025, 11:44</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://anlatilaninotesi.com.tr/20250515/disisleri-bakani-fidan-istanbulda-yurutulecek-gorusmeler-umarim-yeni-bir-sayfa-acmamiza-yol-1096241379.html" target="_blank">Dışişleri Bakanı Fidan: İstanbul'da yürütülecek görüşmeler, umarım yeni bir sayfa açmamıza yol açacaktır</a>
                             <p>15 May 2025, 11:21</p>
                         </div>
@@ -1742,11 +1779,6 @@
                         <div class="card">
                             <a href="https://anlatilaninotesi.com.tr/20250515/oyuncu-harika-avcidan-kotu-haber-karacigerim-bitti-kisa-sure-sonra-olumum-duyulacak-1096240137.html" target="_blank">Oyuncu Harika Avcı'dan kötü haber: 'Karaciğerim bitti. Kısa süre sonra ölümüm duyulacak'</a>
                             <p>15 May 2025, 11:02</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250515/ukrayna-2022den-bu-yana-ilk-kez-nato-zirvesine-davet-edilmedi--1096240458.html" target="_blank">Ukrayna, 2022’den bu yana ilk kez NATO Zirvesi’ne davet edilmedi </a>
-                            <p>15 May 2025, 11:01</p>
                         </div>
                     </div></div>
                 <div class="category-section">
