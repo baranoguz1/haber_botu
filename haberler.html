@@ -508,7 +508,7 @@
         <div class="container">
 
       <!-- Son Güncelleme -->
-      <p>Son Güncelleme: 15 May 2025, 11:40</p>
+      <p>Son Güncelleme: 15 May 2025, 11:42</p>
 
             <!-- Hava Durumu -->
             <h2 id="hava" class="section-title">İstanbul Saatlik Hava Durumu</h2>
@@ -606,6 +606,7 @@
             <!-- Yol Tarifi Alanı -->
             <div style="padding: 20px; text-align: center;">
             <input id="start" type="text" placeholder="Başlangıç noktası" style="padding: 10px; width: 200px; margin: 5px;">
+            <button onclick="useCurrentLocation()" style="padding: 10px 15px;">📍 Mevcut Konumumu Kullan</button>
             <input id="end" type="text" placeholder="Varış noktası" style="padding: 10px; width: 200px; margin: 5px;">
             <button onclick="calculateRoute()" style="padding: 10px 15px;">🧭 Yol Tarifi Göster</button>
             </div>
@@ -627,6 +628,22 @@
                 directionsService = new google.maps.DirectionsService();
                 directionsRenderer = new google.maps.DirectionsRenderer();
                 directionsRenderer.setMap(map);
+            }
+                       
+            function useCurrentLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        const currentLocation = lat + "," + lng;
+                        document.getElementById("start").value = currentLocation;
+                        alert("Mevcut konumunuz ayarlandı: " + currentLocation);
+                    }, function(error) {
+                        alert("Konum alınamadı: " + error.message);
+                    });
+                } else {
+                    alert("Tarayıcınız konum bilgisini desteklemiyor.");
+                }
             }
 
             function calculateRoute() {
@@ -1683,6 +1700,11 @@
                 <div class="container">
                 
                         <div class="card">
+                            <a href="https://www.cnnturk.com/video/dunya/trumpin-istanbul-ikilemi-hakli-ciktim-sozunun-perde-arkasi-2284934" target="_blank">Trump'ın İstanbul ikilemi... "Haklı çıktım" sözünün perde arkası</a>
+                            <p>15 May 2025, 11:38</p>
+                        </div>
+                    
+                        <div class="card">
                             <a href="https://www.cnnturk.com/dunya/disisleri-bakani-hakan-fidan-nato-toplantisinda-konustu-ittifak-capinda-texastan-ankaraya-uzanan-bir-guvenlik-agi-olusturmamiz-gerekiyor-2284919" target="_blank">Dışişleri Bakanı Hakan Fidan, NATO Toplantısı'nda konuştu: İttifak çapında Texas'tan Ankara'ya uzanan bir güvenlik ağı oluşturmamız gerekiyor</a>
                             <p>15 May 2025, 11:17</p>
                         </div>
@@ -1726,16 +1748,16 @@
                             <a href="https://anlatilaninotesi.com.tr/20250515/ukrayna-2022den-bu-yana-ilk-kez-nato-zirvesine-davet-edilmedi--1096240458.html" target="_blank">Ukrayna, 2022’den bu yana ilk kez NATO Zirvesi’ne davet edilmedi </a>
                             <p>15 May 2025, 11:01</p>
                         </div>
-                    
-                        <div class="card">
-                            <a href="https://anlatilaninotesi.com.tr/20250515/yeni-aciklama-geldi-trump-istanbula-gelecek-mi--1096239061.html" target="_blank">Yeni açıklama geldi: Trump İstanbul'a gelecek mi? </a>
-                            <p>15 May 2025, 10:43</p>
-                        </div>
                     </div></div>
                 <div class="category-section">
                 <h2 class="section-title" id="">Ekonomi</h2>
                 <div class="container">
                 
+                        <div class="card">
+                            <a href="https://www.cnnturk.com/ekonomi/ucretli-calisan-sayisi-martta-yillik-bazda-yuzde-0-6-artarak-15-3-milyon-oldu-2284935" target="_blank">Ücretli çalışan sayısı martta yıllık bazda yüzde 0,6 artarak 15,3 milyon oldu</a>
+                            <p>15 May 2025, 11:34</p>
+                        </div>
+                    
                         <div class="card">
                             <a href="https://www.cnnturk.com/ekonomi/merkezi-yonetim-butcesi-nisan-ayinda-174-7-milyar-tl-acik-verdi-2284918" target="_blank">Merkezi yönetim bütçesi Nisan ayında 174,7 milyar TL açık verdi</a>
                             <p>15 May 2025, 11:16</p>
@@ -1779,11 +1801,6 @@
                         <div class="card">
                             <a href="https://www.cnnturk.com/ekonomi/asgari-ucret-ara-zammi-temmuzda-asgari-ucrete-zam-yapilacak-mi-asgari-ucret-ara-zammi-ne-kadar-olacak-asgari-ucret-ara-zamminda-2269951" target="_blank">ASGARİ ÜCRET ARA ZAMMI: Temmuz'da asgari ücrete zam yapılacak mı? Asgari ücret ara zammı ne kadar olacak? Asgari ücret ara zammında son durum ne?</a>
                             <p>15 May 2025, 09:03</p>
-                        </div>
-                    
-                        <div class="card">
-                            <a href="https://www.cnnturk.com/ekonomi/bir-otomotiv-devi-daha-turkiyeye-geliyor-2284781" target="_blank">Bir otomotiv devi daha Türkiye'ye geliyor! İşte fabrikanın kurulacağı il ve üretilecek araçlar...</a>
-                            <p>15 May 2025, 08:49</p>
                         </div>
                     </div></div>
                 <div class="category-section">
